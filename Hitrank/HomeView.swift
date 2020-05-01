@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ViewController: UIViewController {
+class HomeView: UIViewController {
 
 
     
@@ -21,9 +21,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var howToPlayButton: UIButton!
     @IBOutlet weak var highScore: UILabel!
     
+    
+    func isFirstLaunch(){
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore {
+            return
+        } else {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.set(0, forKey: "highscore")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        isFirstLaunch()
         
         view.setGradientBackground(colorOne: Colors.darkBlue, colorTwo: Colors.blue)
         
