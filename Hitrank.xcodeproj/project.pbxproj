@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		670A2F60245CCC5F00BD0381 /* inGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A2F5F245CCC5F00BD0381 /* inGameView.swift */; };
+		67155A2C245D1B5300D372CA /* songEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A2B245D1B5300D372CA /* songEntry.swift */; };
+		67155A2E245DDCD900D372CA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67155A2D245DDCD900D372CA /* WebKit.framework */; };
+		67155A30245DE0F800D372CA /* gameTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A2F245DE0F800D372CA /* gameTopView.swift */; };
+		67155A32245DE10D00D372CA /* gameBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A31245DE10D00D372CA /* gameBottomView.swift */; };
 		67664482245C92910039E88F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664481245C92910039E88F /* AppDelegate.swift */; };
 		67664484245C92910039E88F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664483245C92910039E88F /* SceneDelegate.swift */; };
 		67664486245C92910039E88F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664485245C92910039E88F /* HomeView.swift */; };
@@ -21,6 +25,10 @@
 /* Begin PBXFileReference section */
 		0FC91C321EE48AA86A40EC5E /* Pods-Hitrank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitrank.release.xcconfig"; path = "Target Support Files/Pods-Hitrank/Pods-Hitrank.release.xcconfig"; sourceTree = "<group>"; };
 		670A2F5F245CCC5F00BD0381 /* inGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inGameView.swift; sourceTree = "<group>"; };
+		67155A2B245D1B5300D372CA /* songEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songEntry.swift; sourceTree = "<group>"; };
+		67155A2D245DDCD900D372CA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		67155A2F245DE0F800D372CA /* gameTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameTopView.swift; sourceTree = "<group>"; };
+		67155A31245DE10D00D372CA /* gameBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameBottomView.swift; sourceTree = "<group>"; };
 		6766447E245C92910039E88F /* Hitrank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hitrank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67664481245C92910039E88F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67664483245C92910039E88F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67155A2E245DDCD900D372CA /* WebKit.framework in Frameworks */,
 				DFCA9AF3003E89B260CF4950 /* Pods_Hitrank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +61,6 @@
 				A92AED4C91737C604B7B187B /* Pods-Hitrank.debug.xcconfig */,
 				0FC91C321EE48AA86A40EC5E /* Pods-Hitrank.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -86,6 +94,9 @@
 				6766448F245C92920039E88F /* Info.plist */,
 				67664495245C9F6F0039E88F /* gradient.swift */,
 				670A2F5F245CCC5F00BD0381 /* inGameView.swift */,
+				67155A2B245D1B5300D372CA /* songEntry.swift */,
+				67155A2F245DE0F800D372CA /* gameTopView.swift */,
+				67155A31245DE10D00D372CA /* gameBottomView.swift */,
 			);
 			path = Hitrank;
 			sourceTree = "<group>";
@@ -93,6 +104,7 @@
 		842F08D4DB71E04741D9DEA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67155A2D245DDCD900D372CA /* WebKit.framework */,
 				6EF0E8D9238DC10C407671F9 /* Pods_Hitrank.framework */,
 			);
 			name = Frameworks;
@@ -214,6 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				670A2F60245CCC5F00BD0381 /* inGameView.swift in Sources */,
+				67155A32245DE10D00D372CA /* gameBottomView.swift in Sources */,
+				67155A30245DE0F800D372CA /* gameTopView.swift in Sources */,
+				67155A2C245D1B5300D372CA /* songEntry.swift in Sources */,
 				67664496245C9F6F0039E88F /* gradient.swift in Sources */,
 				67664486245C92910039E88F /* HomeView.swift in Sources */,
 				67664482245C92910039E88F /* AppDelegate.swift in Sources */,

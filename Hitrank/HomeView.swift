@@ -11,7 +11,6 @@ import UIKit
 
 class HomeView: UIViewController {
 
-
     
     @IBOutlet weak var titleText: UILabel!
     
@@ -22,7 +21,7 @@ class HomeView: UIViewController {
     @IBOutlet weak var highScore: UILabel!
     
     
-    func isFirstLaunch(){
+    func isFirstLaunch(){ //when the user first launches the app, set the high score to 0
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
             return
@@ -52,6 +51,8 @@ class HomeView: UIViewController {
         howToPlayButton.layer.cornerRadius = howToPlayButton.frame.size.height/2
         howToPlayButton.layer.masksToBounds = true
         howToPlayButton.setGradientBackground(colorOne: Colors.orange, colorTwo: Colors.brightOrange)
+        
+        highScore.text = "Highscore: \(String(UserDefaults.standard.integer(forKey: "highScore")))"
     }
 
 

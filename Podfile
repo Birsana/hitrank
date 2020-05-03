@@ -7,5 +7,6 @@ target 'Hitrank' do
 
   # Pods for Hitrank
   pod 'Alamofire'
+  pod 'Kingfisher'
 
 end
