@@ -16,6 +16,10 @@ class inGameView: UIViewController {
     @IBOutlet weak var bottomSong: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    var topView: gameTopView?
+    var bottomView: gameBottomView?
+
+    
     var songList = [Song]()
     var availableSongs = [Song]()
     
@@ -60,19 +64,37 @@ class inGameView: UIViewController {
                                     }
                                 }
                                 
-                               counter += 1
+                                counter += 1
                             }
                         }
                     }
                 }
             }
             //MAKE NEXT FUNCTION CALL HERE
+            self.startGame()
             print(self.songList[17])
         }
     }
     
-    func startGame(){
+    func startGame(){ //gets the initial two songs and populates the views with their information
+        
+        scoreLabel.text = "0"
+        scoreLabel.textAlignment = .center
+        
         availableSongs = songList
+        let topTrack = availableSongs.remove(at: Int.random(in: 0..<availableSongs.count))
+        let bottomTrack = availableSongs.remove(at: Int.random(in: 0..<availableSongs.count))
+        topView?.populateData(song: topTrack) //updates the top view with song data
+        bottomView?.populateData(song: bottomTrack) //updates the bottom view with song data
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "topSong" {
+            topView = segue.destination as? gameTopView
+        } else if segue.identifier == "bottomSong" {
+            bottomView = segue.destination as? gameBottomView
+        }
     }
     
     override func viewDidLoad() {
@@ -84,9 +106,9 @@ class inGameView: UIViewController {
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         scoreLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        scoreLabel.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        scoreLabel.heightAnchor.constraint(equalToConstant: 75).isActive = true
-        scoreLabel.layer.cornerRadius = 75/2
+        scoreLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        scoreLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        scoreLabel.layer.cornerRadius = 30
         scoreLabel.layer.masksToBounds = true
         
         
@@ -98,7 +120,7 @@ class inGameView: UIViewController {
     func selectionMade(){
         
     }
-   
+    
     func nextRound(){
         
     }

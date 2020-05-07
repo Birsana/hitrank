@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		670A2F60245CCC5F00BD0381 /* inGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A2F5F245CCC5F00BD0381 /* inGameView.swift */; };
-		67155A2C245D1B5300D372CA /* songEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A2B245D1B5300D372CA /* songEntry.swift */; };
+		67155A2C245D1B5300D372CA /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A2B245D1B5300D372CA /* Song.swift */; };
 		67155A2E245DDCD900D372CA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67155A2D245DDCD900D372CA /* WebKit.framework */; };
 		67155A30245DE0F800D372CA /* gameTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A2F245DE0F800D372CA /* gameTopView.swift */; };
 		67155A32245DE10D00D372CA /* gameBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A31245DE10D00D372CA /* gameBottomView.swift */; };
+		67155A342462572200D372CA /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A332462572200D372CA /* Animations.swift */; };
 		67664482245C92910039E88F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664481245C92910039E88F /* AppDelegate.swift */; };
 		67664484245C92910039E88F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664483245C92910039E88F /* SceneDelegate.swift */; };
 		67664486245C92910039E88F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664485245C92910039E88F /* HomeView.swift */; };
@@ -25,10 +26,11 @@
 /* Begin PBXFileReference section */
 		0FC91C321EE48AA86A40EC5E /* Pods-Hitrank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitrank.release.xcconfig"; path = "Target Support Files/Pods-Hitrank/Pods-Hitrank.release.xcconfig"; sourceTree = "<group>"; };
 		670A2F5F245CCC5F00BD0381 /* inGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inGameView.swift; sourceTree = "<group>"; };
-		67155A2B245D1B5300D372CA /* songEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songEntry.swift; sourceTree = "<group>"; };
+		67155A2B245D1B5300D372CA /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		67155A2D245DDCD900D372CA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		67155A2F245DE0F800D372CA /* gameTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameTopView.swift; sourceTree = "<group>"; };
 		67155A31245DE10D00D372CA /* gameBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameBottomView.swift; sourceTree = "<group>"; };
+		67155A332462572200D372CA /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		6766447E245C92910039E88F /* Hitrank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hitrank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67664481245C92910039E88F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67664483245C92910039E88F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,9 +96,10 @@
 				6766448F245C92920039E88F /* Info.plist */,
 				67664495245C9F6F0039E88F /* gradient.swift */,
 				670A2F5F245CCC5F00BD0381 /* inGameView.swift */,
-				67155A2B245D1B5300D372CA /* songEntry.swift */,
+				67155A2B245D1B5300D372CA /* Song.swift */,
 				67155A2F245DE0F800D372CA /* gameTopView.swift */,
 				67155A31245DE10D00D372CA /* gameBottomView.swift */,
+				67155A332462572200D372CA /* Animations.swift */,
 			);
 			path = Hitrank;
 			sourceTree = "<group>";
@@ -228,8 +231,9 @@
 				670A2F60245CCC5F00BD0381 /* inGameView.swift in Sources */,
 				67155A32245DE10D00D372CA /* gameBottomView.swift in Sources */,
 				67155A30245DE0F800D372CA /* gameTopView.swift in Sources */,
-				67155A2C245D1B5300D372CA /* songEntry.swift in Sources */,
+				67155A2C245D1B5300D372CA /* Song.swift in Sources */,
 				67664496245C9F6F0039E88F /* gradient.swift in Sources */,
+				67155A342462572200D372CA /* Animations.swift in Sources */,
 				67664486245C92910039E88F /* HomeView.swift in Sources */,
 				67664482245C92910039E88F /* AppDelegate.swift in Sources */,
 				67664484245C92910039E88F /* SceneDelegate.swift in Sources */,

@@ -12,9 +12,27 @@ import Kingfisher
 
 class gameBottomView: UIViewController {
     
+    var gameView: inGameView?
     
     @IBOutlet weak var songCover: UIImageView!
     @IBOutlet weak var songEmbed: WKWebView!
+    @IBOutlet weak var chartInfo: UILabel!
+    
+    
+    func populateData(song: Song) {
+        
+        let playURL = song.url.dropFirst(8)
+        let html = genericHTML + playURL + HTMLEnd
+        songEmbed.loadHTMLString(html, baseURL: nil)
+        songEmbed.scrollView.isScrollEnabled = false
+        songEmbed.scrollView.bounces = false
+        
+        chartInfo.text = "Chart Position: ???"
+        
+        let artURL = song.artUrl.dropLast(14)
+        let fullArtURL = artURL + "300x300bb.jpeg"
+        songCover.kf.setImage(with: URL(string: String(fullArtURL)))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

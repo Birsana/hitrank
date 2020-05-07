@@ -82,18 +82,18 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="448"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="q7a-Qv-icN" kind="embed" id="oUs-iR-Sqc"/>
+                                    <segue destination="q7a-Qv-icN" kind="embed" identifier="topSong" id="oUs-iR-Sqc"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxm-J4-INb">
                                 <rect key="frame" x="0.0" y="414" width="414" height="448"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="vtL-Cv-Bpi" kind="embed" id="7xR-6D-wqy"/>
+                                    <segue destination="vtL-Cv-Bpi" kind="embed" identifier="bottomSong" id="7xR-6D-wqy"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcZ-Aa-ca4">
-                                <rect key="frame" x="186" y="438" width="75" height="75"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcZ-Aa-ca4">
+                                <rect key="frame" x="186" y="438" width="42" height="20.5"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -125,12 +125,53 @@
                     <view key="view" contentMode="scaleToFill" id="wde-7J-YMx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ge-LD-WgI">
+                                <rect key="frame" x="40" y="84" width="334" height="150"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="GZX-g5-lko"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SPU-X0-o4s">
+                                <rect key="frame" x="144.5" y="283" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="1eE-gy-a5c"/>
+                                    <constraint firstAttribute="height" constant="125" id="KCt-n7-wAv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A64-j6-lOf">
+                                <rect key="frame" x="186" y="239" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SPU-X0-o4s" firstAttribute="centerX" secondItem="wde-7J-YMx" secondAttribute="centerX" id="0Dm-KD-x6K"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SPU-X0-o4s" secondAttribute="bottom" constant="40" id="1ht-0l-geX"/>
+                            <constraint firstItem="SPU-X0-o4s" firstAttribute="centerX" secondItem="A64-j6-lOf" secondAttribute="centerX" id="HZj-5h-S8T"/>
+                            <constraint firstItem="SPU-X0-o4s" firstAttribute="centerX" secondItem="4Ge-LD-WgI" secondAttribute="centerX" id="LQC-nA-Qcy"/>
+                            <constraint firstItem="A64-j6-lOf" firstAttribute="top" secondItem="4Ge-LD-WgI" secondAttribute="bottom" constant="5" id="YRp-S8-hAQ"/>
+                            <constraint firstItem="4Ge-LD-WgI" firstAttribute="top" secondItem="wde-7J-YMx" secondAttribute="topMargin" constant="40" id="b7a-uL-Xqe"/>
+                            <constraint firstItem="4Ge-LD-WgI" firstAttribute="leading" secondItem="wde-7J-YMx" secondAttribute="leadingMargin" constant="20" id="bXh-m7-Tog"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Ge-LD-WgI" secondAttribute="trailing" constant="20" id="zUX-tC-Wb6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chartInfo" destination="A64-j6-lOf" id="M1d-Bf-4lU"/>
+                        <outlet property="songCover" destination="SPU-X0-o4s" id="8Hu-P5-RH5"/>
+                        <outlet property="songEmbed" destination="4Ge-LD-WgI" id="fSm-5j-42e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88y-Q1-ynH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="702"/>
+            <point key="canvasLocation" x="1900" y="-18"/>
         </scene>
         <!--Game Bottom View-->
         <scene sceneID="hQc-ZW-hjD">
@@ -152,13 +193,13 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8be-Up-DMO">
-                                <rect key="frame" x="186" y="195" width="42" height="21"/>
+                                <rect key="frame" x="186" y="195" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FoX-MS-XGZ">
-                                <rect key="frame" x="144.5" y="221" width="125" height="125"/>
+                                <rect key="frame" x="144.5" y="283" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="b98-wA-5bR"/>
                                     <constraint firstAttribute="width" constant="125" id="bvv-mX-f3V"/>
@@ -169,21 +210,25 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ddn-26-KSO" secondAttribute="trailing" constant="20" id="1Ee-EI-wHm"/>
                             <constraint firstItem="Ddn-26-KSO" firstAttribute="leading" secondItem="knc-0O-hhm" secondAttribute="leadingMargin" constant="20" id="BEC-Qj-RJ7"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="FoX-MS-XGZ" secondAttribute="bottom" constant="40" id="SNK-Eg-Zbz"/>
                             <constraint firstItem="8be-Up-DMO" firstAttribute="centerX" secondItem="knc-0O-hhm" secondAttribute="centerX" id="Y43-ZA-9l6"/>
                             <constraint firstItem="FoX-MS-XGZ" firstAttribute="centerX" secondItem="knc-0O-hhm" secondAttribute="centerX" id="eNR-vS-WgE"/>
-                            <constraint firstItem="FoX-MS-XGZ" firstAttribute="top" secondItem="8be-Up-DMO" secondAttribute="bottom" constant="5" id="mH6-pN-rnZ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="FoX-MS-XGZ" secondAttribute="bottom" constant="40" id="ith-zr-ETU"/>
                             <constraint firstItem="Ddn-26-KSO" firstAttribute="top" secondItem="knc-0O-hhm" secondAttribute="top" constant="40" id="nZ8-jx-gAd"/>
+                            <constraint firstItem="8be-Up-DMO" firstAttribute="centerX" secondItem="knc-0O-hhm" secondAttribute="centerX" id="oTP-nX-ix2"/>
+                            <constraint firstItem="Ddn-26-KSO" firstAttribute="top" secondItem="knc-0O-hhm" secondAttribute="top" constant="40" id="okh-IL-S8Q"/>
                             <constraint firstItem="8be-Up-DMO" firstAttribute="top" secondItem="Ddn-26-KSO" secondAttribute="bottom" constant="5" id="xEE-dQ-wHn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chartInfo" destination="8be-Up-DMO" id="mvL-EF-WDs"/>
                         <outlet property="songCover" destination="FoX-MS-XGZ" id="mce-G6-BaN"/>
                         <outlet property="songEmbed" destination="Ddn-26-KSO" id="Afn-de-3Fq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qOx-fx-v8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057.971014492754" y="-19.419642857142858"/>
+            <point key="canvasLocation" x="984" y="695"/>
         </scene>
     </scenes>
 </document>
