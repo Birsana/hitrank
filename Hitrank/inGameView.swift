@@ -58,7 +58,9 @@ class inGameView: UIViewController {
                                         let url = songAttributes["url"] as! String
                                         if let artwork = songAttributes["artwork"] as? [String: Any] {
                                             let artUrl = artwork["url"] as! String
-                                            let track = Song(chartRank: counter, url: url, artUrl: artUrl, name: name)
+                                            let color = artwork["bgColor"] as! String
+                                            let textColor = artwork["textColor1"] as! String
+                                            let track = Song(chartRank: counter, url: url, artUrl: artUrl, name: name, bgColor: color, textColor: textColor)
                                             self.songList.append(track)
                                         }
                                     }
