@@ -10,25 +10,35 @@ import UIKit
 import WebKit
 import Kingfisher
 
+protocol ContainerToMaster {
+    func selectionMade()
+}
+
 class gameBottomView: UIViewController {
     
-    var gameView: inGameView?
+    var gameView: ContainerToMaster? //used to communicate toInGameView
     
     @IBOutlet weak var songCover: UIImageView!
     @IBOutlet weak var songEmbed: WKWebView!
     @IBOutlet weak var chartInfo: UILabel!
     
-    func formatSongCover(){
+    
+    @IBOutlet weak var higherButton: UIButton!
+    @IBOutlet weak var lowerButton: UIButton!
+    
+    var score: Int!
+    
+    func formatSongCover(){ //makes the background song cover
         songCover.translatesAutoresizingMaskIntoConstraints = false
         songCover.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         songCover.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         songCover.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         songCover.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-
+        
     }
     
     
-    func populateData(song: Song) {
+    func populateData(song: Song) { //fills in the necessary song info
         
         view.backgroundColor = hexStringToUIColor(hex: song.bgColor)
         
@@ -39,7 +49,8 @@ class gameBottomView: UIViewController {
         songEmbed.scrollView.bounces = false
         
         chartInfo.text = "Chart Position: ???"
-        chartInfo.textColor = hexStringToUIColor(hex: song.textColor)
+        
+        score = song.chartRank
         
         let artURL = song.artUrl.dropLast(14)
         let fullArtURL = artURL + "3000x3000bb.jpeg"
@@ -50,7 +61,18 @@ class gameBottomView: UIViewController {
         super.viewDidLoad()
         view.sendSubviewToBack(songCover)
         formatSongCover()
+        
     }
     
+    //the following functions are called when the user chooses higher/lower
     
+    @IBAction func higherTapped(_ sender: Any) {
+        chartInfo.text = "Chart Position: #\(String(score))"
+        gameView?.selectionMade()
+    }
+    
+    @IBAction func lowerTapped(_ sender: Any) {
+        chartInfo.text = "Chart Position: #\(String(score))"
+        gameView?.selectionMade()
+    }
 }

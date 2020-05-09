@@ -38,7 +38,6 @@ class gameTopView: UIViewController {
         songEmbed.scrollView.bounces = false
         
         chartInfo.text = "Chart Position: #\(String(song.chartRank))"
-        chartInfo.textColor = hexStringToUIColor(hex: song.textColor)
         
         let artURL = song.artUrl.dropLast(14)
         let fullArtURL = artURL + "3000x3000bb.jpeg"

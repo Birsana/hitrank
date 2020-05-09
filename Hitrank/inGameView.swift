@@ -10,7 +10,7 @@
 import UIKit
 import Alamofire
 
-class inGameView: UIViewController {
+class inGameView: UIViewController, ContainerToMaster {
     
     @IBOutlet weak var topSong: UIView!    
     @IBOutlet weak var bottomSong: UIView!
@@ -96,7 +96,9 @@ class inGameView: UIViewController {
             topView = segue.destination as? gameTopView
         } else if segue.identifier == "bottomSong" {
             bottomView = segue.destination as? gameBottomView
+            bottomView!.gameView = self
         }
+        
     }
     
     override func viewDidLoad() {
@@ -120,7 +122,11 @@ class inGameView: UIViewController {
     }
     
     func selectionMade(){
+        print("IIIIII")
         
+        
+        
+        //if wrong choice go to game over screen
     }
     
     func nextRound(){
