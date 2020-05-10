@@ -11,7 +11,7 @@ import WebKit
 import Kingfisher
 
 protocol ContainerToMaster {
-    func selectionMade()
+    func selectionMade(choseHigher: Bool)
 }
 
 class gameBottomView: UIViewController {
@@ -68,11 +68,11 @@ class gameBottomView: UIViewController {
     
     @IBAction func higherTapped(_ sender: Any) {
         chartInfo.text = "Chart Position: #\(String(score))"
-        gameView?.selectionMade()
+        gameView?.selectionMade(choseHigher: true)
     }
     
     @IBAction func lowerTapped(_ sender: Any) {
         chartInfo.text = "Chart Position: #\(String(score))"
-        gameView?.selectionMade()
+        gameView?.selectionMade(choseHigher: false)
     }
 }

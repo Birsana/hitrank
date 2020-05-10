@@ -112,11 +112,12 @@
                         <outlet property="bottomSong" destination="sxm-J4-INb" id="g3t-4e-1N0"/>
                         <outlet property="scoreLabel" destination="QcZ-Aa-ca4" id="pwh-Zm-HKO"/>
                         <outlet property="topSong" destination="4CY-Lx-K63" id="ywf-ow-v0f"/>
+                        <segue destination="KKX-P7-Uf4" kind="show" identifier="gameOver" id="btI-GA-KKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kfz-hF-2nS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982.60869565217399" y="117.85714285714285"/>
+            <point key="canvasLocation" x="984" y="88"/>
         </scene>
         <!--Game Top View-->
         <scene sceneID="DK4-TD-AUe">
@@ -156,6 +157,7 @@
                             <constraint firstItem="4Ge-LD-WgI" firstAttribute="leading" secondItem="wde-7J-YMx" secondAttribute="leadingMargin" constant="20" id="bXh-m7-Tog"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Ge-LD-WgI" secondAttribute="trailing" constant="20" id="zUX-tC-Wb6"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="laA-eY-Kdv"/>
                     </view>
                     <connections>
                         <outlet property="chartInfo" destination="A64-j6-lOf" id="M1d-Bf-4lU"/>
@@ -170,7 +172,7 @@
         <!--Game Bottom View-->
         <scene sceneID="hQc-ZW-hjD">
             <objects>
-                <viewController id="vtL-Cv-Bpi" customClass="gameBottomView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bottom" id="vtL-Cv-Bpi" customClass="gameBottomView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="knc-0O-hhm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,6 +227,7 @@
                             <constraint firstItem="8be-Up-DMO" firstAttribute="bottom" secondItem="Ddn-26-KSO" secondAttribute="bottom" id="xEE-dQ-wHn"/>
                             <constraint firstItem="hQk-J8-QXi" firstAttribute="top" secondItem="Ddn-26-KSO" secondAttribute="bottom" constant="30" id="ycF-h8-aMy"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Db-hh-Wgn"/>
                     </view>
                     <connections>
                         <outlet property="chartInfo" destination="8be-Up-DMO" id="mvL-EF-WDs"/>
@@ -237,6 +240,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qOx-fx-v8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="984" y="695"/>
+        </scene>
+        <!--Game Over-->
+        <scene sceneID="vVb-bX-94c">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="KKX-P7-Uf4" customClass="gameOver" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qsw-cq-5aO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="0UJ-eC-AbB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3aQ-gh-CQj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lq-4W-w8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="603"/>
         </scene>
     </scenes>
 </document>
