@@ -20,10 +20,14 @@ class inGameView: UIViewController, ContainerToMaster {
     var bottomView: gameBottomView?
     
     
+    var topTest: songView?
+    var bottomTest: songView?
+    
     var songList = [Song]()
     var availableSongs = [Song]()
     
     var score = 0
+    var safeHeightGlobal: CGFloat?
     
     var upperSong: Song?
     var lowerSong: Song?
@@ -38,20 +42,34 @@ class inGameView: UIViewController, ContainerToMaster {
         scoreLabel.layer.masksToBounds = true
     }
     
-    func songLayout(){
+    func songLayout(){ //layout the top and bottoms songs on the screen halves
         let safeHeight = view.safeAreaLayoutGuide.layoutFrame.size.height
-        print("safe height 1 is \(safeHeight)")
-        topSong.translatesAutoresizingMaskIntoConstraints = false
-        topSong.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        topSong.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        topSong.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        topSong.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
+        safeHeightGlobal = safeHeight
         
-        bottomSong.translatesAutoresizingMaskIntoConstraints = false
-        bottomSong.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        bottomSong.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        bottomSong.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        bottomSong.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
+        //        topSong.translatesAutoresizingMaskIntoConstraints = false
+        //        topSong.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        //        topSong.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        //        topSong.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        //        topSong.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
+        //
+        //        bottomSong.translatesAutoresizingMaskIntoConstraints = false
+        //        bottomSong.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        //        bottomSong.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        //        bottomSong.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        //        bottomSong.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
+        
+        
+        topTest?.translatesAutoresizingMaskIntoConstraints = false
+        topTest?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        topTest?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topTest?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topTest?.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
+        
+        bottomTest?.translatesAutoresizingMaskIntoConstraints = false
+        bottomTest?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomTest?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        bottomTest?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        bottomTest?.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
     }
     
     func getSongs(){ //very messy due to complex JSON structure, am essentially creating all the Song instances from the JSON data
@@ -102,8 +120,14 @@ class inGameView: UIViewController, ContainerToMaster {
         let bottomTrack = availableSongs.remove(at: Int.random(in: 0..<availableSongs.count))
         lowerSong = bottomTrack
         
-        topView?.populateData(song: topTrack) //updates the top view with song data
-        bottomView?.populateData(song: bottomTrack) //updates the bottom view with song data
+        //topView?.populateData(song: topTrack) //updates the top view with song data
+        //bottomView?.populateData(song: bottomTrack) //updates the bottom view with song data
+        
+        topTest?.populateData(song: topTrack)
+        let upperRank = upperSong!.chartRank
+        topTest?.chartInfo.text = "Chart Position: #\(upperRank)"
+        
+        bottomTest?.populateData(song: bottomTrack)
     }
     
     
@@ -122,6 +146,24 @@ class inGameView: UIViewController, ContainerToMaster {
         
         view.setGradientBackground(colorOne: Colors.darkBlue, colorTwo: Colors.blue)
         
+        topView?.view.isHidden = true
+        bottomView?.view.isHidden = true
+        
+        // topTest = (self.storyboard!.instantiateViewController(withIdentifier: "bottom") as! gameBottomView)
+        //  bottomTest = (self.storyboard!.instantiateViewController(withIdentifier: "bottom") as! gameBottomView)
+        
+        topTest = songView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        bottomTest = songView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        
+        view.addSubview(topTest!)
+        view.addSubview(bottomTest!)
+        
+        
+        topTest?.higherButton.isHidden = true
+        topTest?.lowerButton.isHidden = true
+        
+        view.bringSubviewToFront(scoreLabel)
+        
         labelLayout() //format label in center as a circle
         songLayout() //sets layout of container view controllers
         getSongs() //gets the songs
@@ -129,6 +171,8 @@ class inGameView: UIViewController, ContainerToMaster {
     }
     
     func selectionMade(choseHigher: Bool){
+        print("IM HERE")
+        
         if choseHigher {
             if upperSong!.chartRank < lowerSong!.chartRank { //incorrect choice
                 gameOver()
@@ -148,17 +192,32 @@ class inGameView: UIViewController, ContainerToMaster {
     func nextRound() {
         score += 1
         scoreLabel.text = "\(score)"
+        upperSong = lowerSong
         UIView.animate(withDuration: 2.0, animations: {
             UIView.animate(withDuration: 2.0) { //REMOVE TOP VIEW COMPLETION HANDLER
-                self.topSong.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
-                self.topView?.songEmbed.removeFromSuperview()
-                self.bottomView?.higherButton.removeFromSuperview()
-                self.bottomView?.lowerButton.removeFromSuperview()
-                self.bottomSong.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
-                self.newBottomView()
+                //                self.topSong.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
+                //                self.topView?.songEmbed.removeFromSuperview()
+                //                self.bottomView?.higherButton.removeFromSuperview()
+                //                self.bottomView?.lowerButton.removeFromSuperview()
+                //                self.bottomSong.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
+                //                let newSong = self.newBottomView()
+                //                newSong.view.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
+                self.topTest?.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
+                self.topTest?.songEmbed.removeFromSuperview()
+                self.bottomTest?.higherButton.removeFromSuperview()
+                self.bottomTest?.lowerButton.removeFromSuperview()
+                self.bottomTest?.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
+                let newSong = self.newBottomView()
+                newSong.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
+                self.topTest = self.bottomTest
+                self.bottomTest = newSong
             }
         })
-
+        
+    }
+    
+    func nextRoundGeneric() {
+        
     }
     
     func gameOver() {
@@ -167,24 +226,37 @@ class inGameView: UIViewController, ContainerToMaster {
         performSegue(withIdentifier: "gameOver", sender: nil)
     }
     
-    func newBottomView() {
-        let safeHeight = view.safeAreaLayoutGuide.layoutFrame.size.height
-        print("safe height 2 is \(safeHeight)")
-        let newBottom = self.storyboard!.instantiateViewController(withIdentifier: "bottom")
-        self.addChild(newBottom)
-        newBottom.view.translatesAutoresizingMaskIntoConstraints = false
+    func newBottomView() -> songView { //creates the new bottom view
+        let newBottom = songView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         
-        view.addSubview(newBottom.view)
+        //now we populate the new view with the necessary data
         
-        newBottom.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        newBottom.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        newBottom.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        newBottom.view.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
+        if availableSongs.count == 0 { //if all the available songs have been used, reset it to songList minus the top song
+            availableSongs = songList
+            availableSongs = availableSongs.filter {$0 != upperSong}
+        }
         
-
+        let bottomTrack = availableSongs.remove(at: Int.random(in: 0..<availableSongs.count))
+        lowerSong = bottomTrack
+        
+        newBottom.populateData(song: bottomTrack)
+        
+       
+        
+        //formatting for the new view
+        newBottom.translatesAutoresizingMaskIntoConstraints = false
+        
+        newBottom.topAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        newBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        newBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        newBottom.heightAnchor.constraint(equalToConstant: safeHeightGlobal!/2).isActive = true
+        view.bringSubviewToFront(scoreLabel)
+        
+        return newBottom
     }
     
-
+    
+    
     
     
 }

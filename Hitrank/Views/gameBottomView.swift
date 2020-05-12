@@ -34,7 +34,6 @@ class gameBottomView: UIViewController {
         songCover.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         songCover.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         songCover.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
     }
     
     
@@ -67,6 +66,7 @@ class gameBottomView: UIViewController {
     //the following functions are called when the user chooses higher/lower
     
     @IBAction func higherTapped(_ sender: Any) {
+        //gameview is nil, need to fix
         chartInfo.text = "Chart Position: #\(String(score))"
         gameView?.selectionMade(choseHigher: true)
     }
