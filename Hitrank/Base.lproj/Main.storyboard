@@ -78,20 +78,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4CY-Lx-K63">
-                                <rect key="frame" x="0.0" y="44" width="414" height="448"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="q7a-Qv-icN" kind="embed" identifier="topSong" id="oUs-iR-Sqc"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxm-J4-INb">
-                                <rect key="frame" x="0.0" y="414" width="414" height="448"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="vtL-Cv-Bpi" kind="embed" identifier="bottomSong" id="7xR-6D-wqy"/>
-                                </connections>
-                            </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcZ-Aa-ca4">
                                 <rect key="frame" x="186" y="438" width="42" height="20.5"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -109,137 +95,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="M4y-qQ-pB6"/>
                     <connections>
-                        <outlet property="bottomSong" destination="sxm-J4-INb" id="g3t-4e-1N0"/>
                         <outlet property="scoreLabel" destination="QcZ-Aa-ca4" id="pwh-Zm-HKO"/>
-                        <outlet property="topSong" destination="4CY-Lx-K63" id="ywf-ow-v0f"/>
                         <segue destination="KKX-P7-Uf4" kind="show" identifier="gameOver" id="btI-GA-KKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kfz-hF-2nS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="984" y="88"/>
-        </scene>
-        <!--Game Top View-->
-        <scene sceneID="DK4-TD-AUe">
-            <objects>
-                <viewController id="q7a-Qv-icN" customClass="gameTopView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wde-7J-YMx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ge-LD-WgI">
-                                <rect key="frame" x="40" y="84" width="334" height="150"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="GZX-g5-lko"/>
-                                </constraints>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPU-X0-o4s">
-                                <rect key="frame" x="0.0" y="260" width="414" height="188"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A64-j6-lOf">
-                                <rect key="frame" x="186" y="213" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="A64-j6-lOf" firstAttribute="bottom" secondItem="4Ge-LD-WgI" secondAttribute="bottom" id="YRp-S8-hAQ"/>
-                            <constraint firstItem="A64-j6-lOf" firstAttribute="centerX" secondItem="4Ge-LD-WgI" secondAttribute="centerX" id="ZIR-M2-LzT"/>
-                            <constraint firstItem="4Ge-LD-WgI" firstAttribute="top" secondItem="wde-7J-YMx" secondAttribute="topMargin" constant="40" id="b7a-uL-Xqe"/>
-                            <constraint firstItem="4Ge-LD-WgI" firstAttribute="leading" secondItem="wde-7J-YMx" secondAttribute="leadingMargin" constant="20" id="bXh-m7-Tog"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Ge-LD-WgI" secondAttribute="trailing" constant="20" id="zUX-tC-Wb6"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="laA-eY-Kdv"/>
-                    </view>
-                    <connections>
-                        <outlet property="chartInfo" destination="A64-j6-lOf" id="M1d-Bf-4lU"/>
-                        <outlet property="songCover" destination="SPU-X0-o4s" id="8Hu-P5-RH5"/>
-                        <outlet property="songEmbed" destination="4Ge-LD-WgI" id="fSm-5j-42e"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="88y-Q1-ynH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1900" y="-18"/>
-        </scene>
-        <!--Game Bottom View-->
-        <scene sceneID="hQc-ZW-hjD">
-            <objects>
-                <viewController storyboardIdentifier="bottom" id="vtL-Cv-Bpi" customClass="gameBottomView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="knc-0O-hhm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ddn-26-KSO">
-                                <rect key="frame" x="40" y="40" width="334" height="150"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="mVK-K9-qbW"/>
-                                </constraints>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8be-Up-DMO">
-                                <rect key="frame" x="186" y="169.5" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FoX-MS-XGZ">
-                                <rect key="frame" x="144.5" y="0.0" width="125" height="448"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAU-a6-Cvu">
-                                <rect key="frame" x="40" y="220" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="higherTapped:" destination="vtL-Cv-Bpi" eventType="touchUpInside" id="gN6-tg-LgF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQk-J8-QXi">
-                                <rect key="frame" x="328" y="220" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="lowerTapped:" destination="vtL-Cv-Bpi" eventType="touchUpInside" id="UE7-4c-f5u"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ddn-26-KSO" secondAttribute="trailing" constant="20" id="1Ee-EI-wHm"/>
-                            <constraint firstItem="eAU-a6-Cvu" firstAttribute="top" secondItem="Ddn-26-KSO" secondAttribute="bottom" constant="30" id="2Gc-lq-ckr"/>
-                            <constraint firstItem="Ddn-26-KSO" firstAttribute="leading" secondItem="knc-0O-hhm" secondAttribute="leadingMargin" constant="20" id="BEC-Qj-RJ7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hQk-J8-QXi" secondAttribute="trailing" constant="20" id="FgJ-xn-7wX"/>
-                            <constraint firstItem="eAU-a6-Cvu" firstAttribute="leading" secondItem="knc-0O-hhm" secondAttribute="leadingMargin" constant="20" id="WUi-Hb-2EX"/>
-                            <constraint firstItem="8be-Up-DMO" firstAttribute="centerX" secondItem="knc-0O-hhm" secondAttribute="centerX" id="Y43-ZA-9l6"/>
-                            <constraint firstItem="Ddn-26-KSO" firstAttribute="top" secondItem="knc-0O-hhm" secondAttribute="top" constant="40" id="nZ8-jx-gAd"/>
-                            <constraint firstItem="8be-Up-DMO" firstAttribute="centerX" secondItem="knc-0O-hhm" secondAttribute="centerX" id="oTP-nX-ix2"/>
-                            <constraint firstItem="Ddn-26-KSO" firstAttribute="top" secondItem="knc-0O-hhm" secondAttribute="top" constant="40" id="okh-IL-S8Q"/>
-                            <constraint firstItem="8be-Up-DMO" firstAttribute="bottom" secondItem="Ddn-26-KSO" secondAttribute="bottom" id="xEE-dQ-wHn"/>
-                            <constraint firstItem="hQk-J8-QXi" firstAttribute="top" secondItem="Ddn-26-KSO" secondAttribute="bottom" constant="30" id="ycF-h8-aMy"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="5Db-hh-Wgn"/>
-                    </view>
-                    <connections>
-                        <outlet property="chartInfo" destination="8be-Up-DMO" id="mvL-EF-WDs"/>
-                        <outlet property="higherButton" destination="eAU-a6-Cvu" id="otf-HC-bmU"/>
-                        <outlet property="lowerButton" destination="hQk-J8-QXi" id="H8z-sb-JJo"/>
-                        <outlet property="songCover" destination="FoX-MS-XGZ" id="mce-G6-BaN"/>
-                        <outlet property="songEmbed" destination="Ddn-26-KSO" id="Afn-de-3Fq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qOx-fx-v8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="984" y="695"/>
         </scene>
         <!--Game Over-->
         <scene sceneID="vVb-bX-94c">
@@ -255,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lq-4W-w8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963.7681159420292" y="602.67857142857144"/>
+            <point key="canvasLocation" x="936" y="879"/>
         </scene>
     </scenes>
 </document>

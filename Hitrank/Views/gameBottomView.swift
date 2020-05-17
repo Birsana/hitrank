@@ -66,12 +66,14 @@ class gameBottomView: UIViewController {
     //the following functions are called when the user chooses higher/lower
     
     @IBAction func higherTapped(_ sender: Any) {
+        print("high")
         //gameview is nil, need to fix
         chartInfo.text = "Chart Position: #\(String(score))"
         gameView?.selectionMade(choseHigher: true)
     }
     
     @IBAction func lowerTapped(_ sender: Any) {
+        print("low")
         chartInfo.text = "Chart Position: #\(String(score))"
         gameView?.selectionMade(choseHigher: false)
     }
