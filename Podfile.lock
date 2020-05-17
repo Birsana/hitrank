@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.0.0)
+  - EFCountingLabel (5.1.1)
   - Kingfisher (5.13.0):
     - Kingfisher/Core (= 5.13.0)
   - Kingfisher/Core (5.13.0)
@@ -7,20 +8,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - EFCountingLabel
   - Kingfisher
   - ReachabilitySwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - EFCountingLabel
     - Kingfisher
     - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
+  EFCountingLabel: 605358591a67a3c92feb7ec32486bfab4a30e2c9
   Kingfisher: 0d334cada987fcddbe9b5cec516406e1ee9d4748
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: efda6dc2d79c29aa78f4f0f032d1724277aec2fd
+PODFILE CHECKSUM: 98a5e843d595402464984055de9a27333fe85673
 
 COCOAPODS: 1.8.4

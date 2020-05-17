@@ -9,13 +9,14 @@
 import UIKit
 import WebKit
 import Kingfisher
+import EFCountingLabel
 
 class songView: UIView {
     
     @IBOutlet var contentView: UIView!
     
     @IBOutlet weak var songCover: UIImageView!
-    @IBOutlet weak var chartInfo: UILabel!
+    @IBOutlet weak var chartInfo: EFCountingLabel!
     @IBOutlet weak var songEmbed: WKWebView!
     
     @IBOutlet weak var higherButton: UIButton!
@@ -66,16 +67,22 @@ class songView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         contentView.sendSubviewToBack(songCover)
+        
+        chartInfo.setUpdateBlock { (value, label) in
+            label.text = String(format: "Chart Position: #\(Int(value))")
+        }
+        chartInfo.counter.timingFunction = EFTimingFunction.easeOut(easingRate: 1)
+
         formatSongCover()
     }
     
     
     @IBAction func higherTapped(_ sender: Any) {
-     chartInfo.text = "Chart Position: #\(String(score))"
+        chartInfo.countFrom(0, to: CGFloat(score), withDuration: 1)
     }
     
     @IBAction func lowerTapped(_ sender: Any) {
-       chartInfo.text = "Chart Position: #\(String(score))"
+        chartInfo.countFrom(1, to: CGFloat(score), withDuration: 1)
     }
     
 }

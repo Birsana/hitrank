@@ -85,16 +85,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZjH-lN-APG">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="ZjH-lN-APG" firstAttribute="centerX" secondItem="5Yt-dx-7Wh" secondAttribute="centerX" id="GXF-DK-Nim"/>
                             <constraint firstItem="QcZ-Aa-ca4" firstAttribute="centerY" secondItem="5Yt-dx-7Wh" secondAttribute="centerY" id="Jv5-Jp-47L"/>
+                            <constraint firstItem="ZjH-lN-APG" firstAttribute="centerY" secondItem="5Yt-dx-7Wh" secondAttribute="centerY" id="Ufz-Wb-9B2"/>
                             <constraint firstItem="QcZ-Aa-ca4" firstAttribute="centerX" secondItem="5Yt-dx-7Wh" secondAttribute="centerX" id="fNg-oy-UKW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="suh-tI-ceb"/>
                     </view>
                     <navigationItem key="navigationItem" id="M4y-qQ-pB6"/>
                     <connections>
+                        <outlet property="backgroundView" destination="ZjH-lN-APG" id="pfH-gY-XXB"/>
                         <outlet property="scoreLabel" destination="QcZ-Aa-ca4" id="pwh-Zm-HKO"/>
                         <segue destination="KKX-P7-Uf4" kind="show" identifier="gameOver" id="btI-GA-KKL"/>
                     </connections>

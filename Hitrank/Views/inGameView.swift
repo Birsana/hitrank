@@ -9,9 +9,12 @@
 
 import UIKit
 import Alamofire
+import QuartzCore
+import EFCountingLabel
 
 class inGameView: UIViewController{
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     
     var upperView: songView?
@@ -30,6 +33,7 @@ class inGameView: UIViewController{
     
     
     func labelLayout() {
+        scoreLabel.backgroundColor = UIColor.clear
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         scoreLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -37,6 +41,17 @@ class inGameView: UIViewController{
         scoreLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
         scoreLabel.layer.cornerRadius = 30
         scoreLabel.layer.masksToBounds = true
+        
+        //backgroundView is used for colour animations, since UILabels can't be animated
+        
+        backgroundView.backgroundColor = UIColor.systemPink
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        backgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        backgroundView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        backgroundView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        backgroundView.layer.cornerRadius = 30
+        backgroundView.layer.masksToBounds = true
     }
     
     func songLayout(){ //layout the top and bottoms songs on the screen halves
@@ -57,30 +72,6 @@ class inGameView: UIViewController{
         lowerView?.heightAnchor.constraint(equalToConstant: safeHeight/2).isActive = true
         
         
-    }
-    
-    func constrainToTop(songView: songView) {
-        //songView.translatesAutoresizingMaskIntoConstraints = false
-        songView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        songView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        songView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        songView.heightAnchor.constraint(equalToConstant: safeHeightGlobal!/2).isActive = true
-    }
-    
-    func constrainToBottom(songView: songView) {
-        // songView.translatesAutoresizingMaskIntoConstraints = false
-        songView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        songView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        songView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        songView.heightAnchor.constraint(equalToConstant: safeHeightGlobal!/2).isActive = true
-    }
-    
-    func constrainToAboveScreen(songView: songView) {
-        //    songView.translatesAutoresizingMaskIntoConstraints = false
-        songView.bottomAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        songView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        songView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        songView.heightAnchor.constraint(equalToConstant: safeHeightGlobal!/2).isActive = true
     }
     
     
@@ -153,6 +144,7 @@ class inGameView: UIViewController{
         upperView?.higherButton.removeFromSuperview()
         upperView?.lowerButton.removeFromSuperview()
         
+        self.view.bringSubviewToFront(self.backgroundView)
         view.bringSubviewToFront(scoreLabel)
         
         labelLayout() //format label in center as a circle
@@ -165,73 +157,80 @@ class inGameView: UIViewController{
     
     @objc func higherSelect() {
         if upperSong!.chartRank < lowerSong!.chartRank { //incorrect choice
-            gameOver()
+            UIView.animate(withDuration: 2, delay: 0, animations: {
+                self.scoreLabel.text = "X"
+                self.backgroundView.backgroundColor = UIColor.systemRed
+            }) { (finished) in
+                self.backgroundView.backgroundColor = UIColor.systemPink
+                self.gameOver()
+            }
         } else { //correct choice
-            nextRound()
+            UIView.animate(withDuration: 2, delay: 0, animations: {
+                self.scoreLabel.text = "✔"
+                self.backgroundView.backgroundColor = UIColor.systemGreen
+            }) { (finished) in
+                self.backgroundView.backgroundColor = UIColor.systemPink
+                self.scoreLabel.text = "\(self.score)"
+                self.nextRound()
+            }
         }
     }
     
     @objc func lowerSelect() {
         if upperSong!.chartRank > lowerSong!.chartRank { //incorrect choice
-            gameOver()
+            UIView.animate(withDuration: 2, delay: 0, animations: {
+                self.scoreLabel.text = "X"
+                self.backgroundView.backgroundColor = UIColor.systemRed
+            }) { (finished) in
+                self.backgroundView.backgroundColor = UIColor.systemPink
+                self.gameOver()
+            }
         } else { //correct choice
-            nextRound()
-        }
-    }
-    
-    
-    func selectionMade(choseHigher: Bool){
-        if choseHigher {
-            if upperSong!.chartRank < lowerSong!.chartRank { //incorrect choice
-                //REMEMBER TO ADD SCORE LABEL ANIMATION
-                gameOver()
-            } else { //correct choice
-                nextRound()
-            }
-        }
-        else {
-            if upperSong!.chartRank > lowerSong!.chartRank { //incorrect choice
-                gameOver()
-            } else { //correct choice
-                nextRound()
+            UIView.animate(withDuration: 2, delay: 0, animations: {
+                self.scoreLabel.text = "✔"
+                self.backgroundView.backgroundColor = UIColor.systemGreen
+            }) { (finished) in
+                self.backgroundView.backgroundColor = UIColor.systemPink
+                self.nextRound()
             }
         }
     }
     
-    var count = 0
     
     func nextRound() { //preparing the next round
-        count = count+1
         score += 1
         scoreLabel.text = "\(score)"
         upperSong = lowerSong
-        UIView.animate(withDuration: 2.0, animations: { //animating away old song, and animating in new song
+        UIView.animate(withDuration: 1.0, animations: { //animating away old song, and animating in new song
             
-            //          self.upperView?.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
+            //animate top outside screen
             let prevTransform = self.upperView?.transform
             self.upperView?.transform = CGAffineTransform(translationX: prevTransform!.tx, y: prevTransform!.ty - UIScreen.main.bounds.height/2)
             
-            
+            //animate bottom to top
             self.lowerView?.higherButton.removeFromSuperview()
             self.lowerView?.lowerButton.removeFromSuperview()
             
+            //animate new song to bottom
             let prevTransformBottom = self.lowerView?.transform
             self.lowerView?.transform = CGAffineTransform(translationX: prevTransformBottom!.tx, y: prevTransformBottom!.ty - UIScreen.main.bounds.height/2)
             
             self.newSongView = self.newBottomView()
             self.newSongView!.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 * -1)
-            
-            //self.constrainToAboveScreen(songView: self.upperView!)
-            //  self.constrainToTop(songView: self.lowerView!)
-            //  self.constrainToBottom(songView: self.newSongView!)
         }) { finished in
             self.upperView?.songEmbed.removeFromSuperview()
             self.upperView?.removeFromSuperview()
+            
+            //reassign views as needed
             self.upperView = self.lowerView
             self.lowerView = self.newSongView
+            
             self.lowerView?.higherButton.addTarget(self, action: #selector(self.higherSelect), for: .touchUpInside)
             self.lowerView?.lowerButton.addTarget(self, action: #selector(self.lowerSelect), for: .touchUpInside)
+            
+            self.view.bringSubviewToFront(self.backgroundView)
             self.view.bringSubviewToFront(self.scoreLabel)
+            
         }
         
         
@@ -245,10 +244,10 @@ class inGameView: UIViewController{
     }
     
     func newBottomView() -> songView { //creates the new bottom view
-        let newBottom = songView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        let newBottom = songView()
         view.addSubview(newBottom)
-        //now we populate the new view with the necessary data
         
+        //now we populate the new view with the necessary data
         if availableSongs.count == 0 { //if all the available songs have been used, reset it to songList minus the top song
             availableSongs = songList
             availableSongs = availableSongs.filter {$0 != upperSong}
@@ -265,6 +264,7 @@ class inGameView: UIViewController{
         newBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         newBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         newBottom.heightAnchor.constraint(equalToConstant: safeHeightGlobal!/2).isActive = true
+        self.view.bringSubviewToFront(self.backgroundView)
         view.bringSubviewToFront(scoreLabel)
         
         return newBottom

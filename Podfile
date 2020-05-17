@@ -9,5 +9,6 @@ target 'Hitrank' do
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'ReachabilitySwift'
+  pod 'EFCountingLabel'
 
 end
