@@ -34,39 +34,49 @@
                     </wkWebViewConfiguration>
                 </wkWebView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JU-AH-g4q" customClass="EFCountingLabel" customModule="EFCountingLabel">
-                    <rect key="frame" x="185" y="84" width="44.5" height="21"/>
+                    <rect key="frame" x="185" y="84" width="44.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnm-g4-6X0">
-                    <rect key="frame" x="20" y="264" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="higherTapped:" destination="-1" eventType="touchUpInside" id="g3S-Vr-jfB"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhP-wg-5KW">
-                    <rect key="frame" x="348" y="264" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="lowerTapped:" destination="-1" eventType="touchUpInside" id="64u-99-k3S"/>
-                    </connections>
-                </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-L4-6dT">
                     <rect key="frame" x="87" y="630" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-bR-0mf">
+                    <rect key="frame" x="147" y="264" width="120" height="110"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnm-g4-6X0">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="higherTapped:" destination="-1" eventType="touchUpInside" id="g3S-Vr-jfB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhP-wg-5KW">
+                            <rect key="frame" x="0.0" y="80" width="120" height="30"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="lowerTapped:" destination="-1" eventType="touchUpInside" id="64u-99-k3S"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="JZk-qx-7ph"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="3JU-AH-g4q" firstAttribute="top" secondItem="JSp-qe-Bze" secondAttribute="top" id="29t-8R-1RU"/>
-                <constraint firstItem="QhP-wg-5KW" firstAttribute="top" secondItem="JSp-qe-Bze" secondAttribute="bottom" constant="30" id="5af-t9-IGI"/>
                 <constraint firstItem="JSp-qe-Bze" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="7IX-Gl-fGm"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QhP-wg-5KW" secondAttribute="trailing" constant="20" id="ODe-56-jhV"/>
+                <constraint firstItem="RaU-bR-0mf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="h4a-Yh-1oe"/>
                 <constraint firstItem="JSp-qe-Bze" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="hOk-Vd-goH"/>
-                <constraint firstItem="Rnm-g4-6X0" firstAttribute="top" secondItem="JSp-qe-Bze" secondAttribute="bottom" constant="30" id="k3b-ry-5k1"/>
-                <constraint firstItem="Rnm-g4-6X0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="r6U-1p-CmH"/>
+                <constraint firstItem="RaU-bR-0mf" firstAttribute="top" secondItem="JSp-qe-Bze" secondAttribute="bottom" constant="30" id="tri-el-HWu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JSp-qe-Bze" secondAttribute="trailing" constant="20" id="x4l-0V-CKD"/>
                 <constraint firstItem="3JU-AH-g4q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zf4-cA-1qW"/>
             </constraints>

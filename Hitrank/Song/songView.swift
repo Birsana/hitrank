@@ -54,12 +54,15 @@ class songView: UIView {
     }
     
     func formatSongCover(){ //makes the background song cover
+        songCover.contentMode = .scaleAspectFill
         songCover.translatesAutoresizingMaskIntoConstraints = false
         songCover.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         songCover.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         songCover.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         songCover.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
+    
+    
     
     private func commonInit() {
         Bundle.main.loadNibNamed("songView", owner: self, options: nil)
@@ -68,11 +71,24 @@ class songView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         contentView.sendSubviewToBack(songCover)
         
+        
+        higherButton.setTitle("Higher", for: .normal)
+        lowerButton.setTitle("Lower", for: .normal)
+        
+        higherButton.layer.cornerRadius = higherButton.frame.size.height/2
+        higherButton.layer.masksToBounds = true
+        
+        lowerButton.layer.cornerRadius = lowerButton.frame.size.height/2
+        lowerButton.layer.masksToBounds = true
+        
+        higherButton.backgroundColor = UIColor.systemPink
+        lowerButton.backgroundColor = UIColor.systemPink
+        
         chartInfo.setUpdateBlock { (value, label) in
             label.text = String(format: "Chart Position: #\(Int(value))")
         }
         chartInfo.counter.timingFunction = EFTimingFunction.easeOut(easingRate: 1)
-
+        
         formatSongCover()
     }
     

@@ -30,7 +30,12 @@ class inGameView: UIViewController{
     var score = 0
     var safeHeightGlobal: CGFloat?
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gameOver" {
+            let destVC = segue.destination as! gameOver
+            destVC.score = score
+        }
+    }
     
     func labelLayout() {
         scoreLabel.backgroundColor = UIColor.clear

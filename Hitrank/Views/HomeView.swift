@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class HomeView: UIViewController {
-
+    
     
     @IBOutlet weak var titleText: UILabel!
     
@@ -33,12 +33,11 @@ class HomeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         isFirstLaunch()
         
         view.setGradientBackground(colorOne: Colors.darkBlue, colorTwo: Colors.blue)
         
-     
+        
         
         titleText.textColor = UIColor.white
         titleText.font = UIFont(name: "Verdana-Bold", size: titleText.font.pointSize)
@@ -54,7 +53,7 @@ class HomeView: UIViewController {
         
         highScore.text = "Highscore: \(String(UserDefaults.standard.integer(forKey: "highScore")))"
     }
-
-
+    
+    
 }
 
