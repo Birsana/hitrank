@@ -20,6 +20,7 @@ class inGameView: UIViewController{
     var upperView: songView?
     var lowerView: songView?
     var newSongView: songView?
+    let lineView = UIView()
     
     var upperSong: Song?
     var lowerSong: Song?
@@ -35,6 +36,18 @@ class inGameView: UIViewController{
             let destVC = segue.destination as! gameOver
             destVC.score = score
         }
+    }
+    
+    func lineLayout() {
+        view.addSubview(lineView)
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        lineView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        lineView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        lineView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        lineView.backgroundColor = UIColor.systemPink
+
     }
     
     func labelLayout() {
@@ -57,6 +70,8 @@ class inGameView: UIViewController{
         backgroundView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         backgroundView.layer.cornerRadius = 30
         backgroundView.layer.masksToBounds = true
+        view.bringSubviewToFront(backgroundView)
+        view.bringSubviewToFront(scoreLabel)
     }
     
     func songLayout(){ //layout the top and bottoms songs on the screen halves
@@ -152,9 +167,10 @@ class inGameView: UIViewController{
         self.view.bringSubviewToFront(self.backgroundView)
         view.bringSubviewToFront(scoreLabel)
         
-        labelLayout() //format label in center as a circle
         songLayout() //sets layout of container view controllers
         getSongs() //gets the songs
+        lineLayout() //draws line across middle of songs
+        labelLayout() //format label in center as a circle
         
         lowerView?.higherButton.addTarget(self, action: #selector(higherSelect), for: .touchUpInside)
         lowerView?.lowerButton.addTarget(self, action: #selector(lowerSelect), for: .touchUpInside)
@@ -206,6 +222,7 @@ class inGameView: UIViewController{
         score += 1
         scoreLabel.text = "\(score)"
         upperSong = lowerSong
+        lineView.isHidden = true
         UIView.animate(withDuration: 1.0, animations: { //animating away old song, and animating in new song
             
             //animate top outside screen
@@ -232,7 +249,8 @@ class inGameView: UIViewController{
             
             self.lowerView?.higherButton.addTarget(self, action: #selector(self.higherSelect), for: .touchUpInside)
             self.lowerView?.lowerButton.addTarget(self, action: #selector(self.lowerSelect), for: .touchUpInside)
-            
+            self.lineView.isHidden = false
+            self.view.bringSubviewToFront(self.lineView)
             self.view.bringSubviewToFront(self.backgroundView)
             self.view.bringSubviewToFront(self.scoreLabel)
             

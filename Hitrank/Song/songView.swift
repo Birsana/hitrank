@@ -43,6 +43,8 @@ class songView: UIView {
         songEmbed.loadHTMLString(html, baseURL: nil)
         songEmbed.scrollView.isScrollEnabled = false
         songEmbed.scrollView.bounces = false
+        songEmbed.layer.cornerRadius = 10.0
+        songEmbed.clipsToBounds = true
         
         chartInfo.text = "Chart Position: ???"
         
