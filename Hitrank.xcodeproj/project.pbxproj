@@ -21,6 +21,7 @@
 		6766448B245C92920039E88F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6766448A245C92920039E88F /* Assets.xcassets */; };
 		6766448E245C92920039E88F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6766448C245C92920039E88F /* LaunchScreen.storyboard */; };
 		67664496245C9F6F0039E88F /* gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664495245C9F6F0039E88F /* gradient.swift */; };
+		67BCC479247AD9C30030E5DF /* howToPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BCC478247AD9C30030E5DF /* howToPlay.swift */; };
 		DFCA9AF3003E89B260CF4950 /* Pods_Hitrank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF0E8D9238DC10C407671F9 /* Pods_Hitrank.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		6766448D245C92920039E88F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6766448F245C92920039E88F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67664495245C9F6F0039E88F /* gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradient.swift; sourceTree = "<group>"; };
+		67BCC478247AD9C30030E5DF /* howToPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = howToPlay.swift; sourceTree = "<group>"; };
 		6EF0E8D9238DC10C407671F9 /* Pods_Hitrank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hitrank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92AED4C91737C604B7B187B /* Pods-Hitrank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitrank.debug.xcconfig"; path = "Target Support Files/Pods-Hitrank/Pods-Hitrank.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				67664485245C92910039E88F /* HomeView.swift */,
 				670A2F5F245CCC5F00BD0381 /* inGameView.swift */,
 				67155A38246746D100D372CA /* gameOver.swift */,
+				67BCC478247AD9C30030E5DF /* howToPlay.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				670A2F60245CCC5F00BD0381 /* inGameView.swift in Sources */,
+				67BCC479247AD9C30030E5DF /* howToPlay.swift in Sources */,
 				67155A2C245D1B5300D372CA /* Song.swift in Sources */,
 				67664496245C9F6F0039E88F /* gradient.swift in Sources */,
 				67664486245C92910039E88F /* HomeView.swift in Sources */,

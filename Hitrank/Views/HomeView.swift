@@ -35,25 +35,30 @@ class HomeView: UIViewController {
         super.viewDidLoad()
         isFirstLaunch()
         
-        view.setGradientBackground(colorOne: Colors.darkBlue, colorTwo: Colors.blue)
+        //view.setGradientBackground(colorOne: Colors.darkBlue, colorTwo: Colors.blue)
         
         
-        
-        titleText.textColor = UIColor.white
         titleText.font = UIFont(name: "Verdana-Bold", size: titleText.font.pointSize)
         
         
         playButton.layer.cornerRadius = playButton.frame.size.height/2
         playButton.layer.masksToBounds = true
-        playButton.setGradientBackground(colorOne: Colors.orange, colorTwo: Colors.brightOrange)
+       // playButton.setGradientBackground(colorOne: Colors.orange, colorTwo: Colors.brightOrange)
+        playButton.backgroundColor = UIColor.systemPink
         
         howToPlayButton.layer.cornerRadius = howToPlayButton.frame.size.height/2
         howToPlayButton.layer.masksToBounds = true
-        howToPlayButton.setGradientBackground(colorOne: Colors.orange, colorTwo: Colors.brightOrange)
+        howToPlayButton.backgroundColor = UIColor.systemPink
+        //howToPlayButton.setGradientBackground(colorOne: Colors.orange, colorTwo: Colors.brightOrange)
         
         highScore.text = "Highscore: \(String(UserDefaults.standard.integer(forKey: "highScore")))"
     }
     
     
+    @IBAction func instructionsTapped(_ sender: Any) {
+//        let modalVC = howToPlay()
+//        modalVC.modalPresentationStyle =  .formSheet
+//        present(modalVC, animated: true, completion: nil)
+    }
 }
 
