@@ -13,6 +13,7 @@ class gameOver: UIViewController {
     var score: Int!
     var highScore: Int!
     
+    @IBOutlet weak var ring: UIImageView!
     
     @IBOutlet weak var playAgain: UIButton!
     @IBOutlet weak var mainMenu: UIButton!
@@ -32,8 +33,26 @@ class gameOver: UIViewController {
         mainMenu.backgroundColor = UIColor.systemPink
     }
     
+    func createOuterBorder() {
+        let border = UIView()
+        view.addSubview(border)
+        view.sendSubviewToBack(border)
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
+        border.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+        border.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        border.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        
+        border.layer.borderWidth = 2
+        border.layer.borderColor = UIColor.systemPink.cgColor
+        border.layer.cornerRadius = 10
+        border.clipsToBounds = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ring.image = UIImage(named: "justring")
+        view.sendSubviewToBack(ring)
         if score > UserDefaults.standard.integer(forKey: "highScore") {
             UserDefaults.standard.set(score, forKey: "highScore")
         }
@@ -43,6 +62,7 @@ class gameOver: UIViewController {
         highScoreLabel.text = "Highscore: \(highScore ?? 0)"
         
         formatButtons()
+        createOuterBorder()
     }
     
 }

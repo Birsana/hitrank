@@ -9,9 +9,14 @@
 import UIKit
 
 class howToPlay: UIViewController {
-
+    
+    @IBOutlet weak var info: UIView!
+    @IBOutlet weak var instructions: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        info.layer.borderWidth = 2
+        info.layer.borderColor = UIColor.systemPink.cgColor
+        
     }
     
     @IBAction func dismissPopup(_ sender: Any) {
