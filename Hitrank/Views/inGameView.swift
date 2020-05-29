@@ -96,6 +96,9 @@ class inGameView: UIViewController{
     
     
     func getSongs(){ //very messy due to complex JSON structure, am essentially creating all the Song instances from the JSON data
+        
+        URLCache.shared.removeAllCachedResponses() //remove existing cache so song data can update
+        
         let dataURL = "https://hitrankchartdata.s3.us-east-2.amazonaws.com/data.json"
         AF.request(dataURL).responseJSON { (response) in
             guard let data = response.data else { return }

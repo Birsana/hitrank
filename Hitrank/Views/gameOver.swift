@@ -51,6 +51,7 @@ class gameOver: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1)
         ring.image = UIImage(named: "justring")
         view.sendSubviewToBack(ring)
         if score > UserDefaults.standard.integer(forKey: "highScore") {
@@ -59,7 +60,9 @@ class gameOver: UIViewController {
         highScore = UserDefaults.standard.integer(forKey: "highScore")
         
         scoreLabel.text = "Score: \(score ?? 0)"
+        scoreLabel.textColor = UIColor.white
         highScoreLabel.text = "Highscore: \(highScore ?? 0)"
+        highScoreLabel.textColor = UIColor.white
         
         formatButtons()
         createOuterBorder()

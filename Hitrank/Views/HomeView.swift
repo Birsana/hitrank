@@ -72,12 +72,14 @@ class HomeView: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         isFirstLaunch()
-        
-        icon.image = UIImage(named: "icon")
+        //view.backgroundColor = UIColor(red: 37, green: 38, blue: 108, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1)
+        icon.image = UIImage(named: "icon2")
         
         createOuterBorder()
         
         titleText.font = UIFont(name: "Verdana-Bold", size: titleText.font.pointSize)
+        titleText.textColor = UIColor.white
         
         playButton.layer.cornerRadius = playButton.frame.size.height/2
         playButton.layer.masksToBounds = true
@@ -88,6 +90,7 @@ class HomeView: UIViewController{
         howToPlayButton.backgroundColor = UIColor.systemPink
         
         highScore.text = "Highscore: \(String(UserDefaults.standard.integer(forKey: "highScore")))"
+        highScore.textColor = UIColor.white
     }
     
     

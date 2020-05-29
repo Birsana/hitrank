@@ -14,8 +14,10 @@ class howToPlay: UIViewController {
     @IBOutlet weak var instructions: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        info.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1)
         info.layer.borderWidth = 2
         info.layer.borderColor = UIColor.systemPink.cgColor
+        instructions.textColor = UIColor.white
         
     }
     

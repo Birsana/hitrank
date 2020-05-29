@@ -132,7 +132,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="ZjH-lN-APG" id="pfH-gY-XXB"/>
                         <outlet property="scoreLabel" destination="QcZ-Aa-ca4" id="pwh-Zm-HKO"/>
-                        <segue destination="KKX-P7-Uf4" kind="show" identifier="gameOver" id="btI-GA-KKL"/>
+                        <segue destination="KKX-P7-Uf4" kind="presentation" identifier="gameOver" id="btI-GA-KKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kfz-hF-2nS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -144,14 +144,14 @@
             <objects>
                 <viewController modalPresentationStyle="currentContext" id="nNk-1m-24r" customClass="howToPlay" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="VgG-XQ-YXw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Kwu-k6-bMN">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-va-AMR">
-                                    <rect key="frame" x="62" y="373" width="290" height="150"/>
+                                    <rect key="frame" x="62" y="346" width="290" height="150"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -160,7 +160,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0q-bS-StO" userLabel="instructions">
-                                    <rect key="frame" x="72" y="383" width="270" height="130"/>
+                                    <rect key="frame" x="72" y="356" width="270" height="130"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="270" id="hbb-T3-RZF"/>
                                         <constraint firstAttribute="height" constant="130" id="wc4-Ff-6B9"/>
@@ -172,7 +172,7 @@ is from Apple Music Top 50 and is updated daily.</string>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8o-KR-YGG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                     <connections>
                                         <action selector="dismissPopup:" destination="nNk-1m-24r" eventType="touchUpInside" id="cvd-8X-1V0"/>
                                     </connections>
@@ -211,7 +211,7 @@ is from Apple Music Top 50 and is updated daily.</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaM-EO-KaD">
                                 <rect key="frame" x="0.0" y="74" width="414" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aTT-Ve-st3">
@@ -307,6 +307,7 @@ is from Apple Music Top 50 and is updated daily.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mfv-wz-syV"/>
+        <segue reference="btI-GA-KKL"/>
+        <segue reference="397-Tx-S5I"/>
     </inferredMetricsTieBreakers>
 </document>
