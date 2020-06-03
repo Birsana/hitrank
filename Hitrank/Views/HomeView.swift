@@ -98,25 +98,20 @@ class HomeView: UIViewController{
         
     }
     
-    @IBAction func playTapped(_ sender: Any) {
-        let reachability = try! Reachability()
-        reachability.whenReachable = { reachability in
-            if reachability.connection == .wifi {
-                print("Reachable via WiFi")
-            } else {
-                print("Reachable via Cellular")
-            }
+    @IBAction func playTapped(_ sender: Any) { //need to check if internet connection is available
+        let status = Reach().connectionStatus()
+        switch status {
+        case .unknown, .offline:
+            print("Not connected")
+            let alert = UIAlertController(title: "No Internet Connection Detected", message: "An internet connection is required to play Hitrank", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        case .online(.wwan):
+            performSegue(withIdentifier: "start", sender: nil)
+            
+        case .online(.wiFi):
+            performSegue(withIdentifier: "start", sender: nil)
         }
-        reachability.whenUnreachable = { _ in
-            print("Not reachable")
-        }
-
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
-        reachability.stopNotifier()
     }
 }
 

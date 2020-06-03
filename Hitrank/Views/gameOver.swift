@@ -52,8 +52,11 @@ class gameOver: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1)
+        
         ring.image = UIImage(named: "justring")
         view.sendSubviewToBack(ring)
+       // view.sendSubviewToBack(blurEffectView)
+        
         if score > UserDefaults.standard.integer(forKey: "highScore") {
             UserDefaults.standard.set(score, forKey: "highScore")
         }
@@ -68,4 +71,19 @@ class gameOver: UIViewController {
         createOuterBorder()
     }
     
+    @IBAction func againTapped(_ sender: Any) {
+        let status = Reach().connectionStatus()
+        switch status {
+        case .unknown, .offline:
+            print("Not connected")
+            let alert = UIAlertController(title: "No Internet Connection Detected", message: "An internet connection is required to play Hitrank", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        case .online(.wwan):
+            performSegue(withIdentifier: "again", sender: nil)
+            
+        case .online(.wiFi):
+            performSegue(withIdentifier: "again", sender: nil)
+        }
+    }
 }

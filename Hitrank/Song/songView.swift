@@ -45,7 +45,7 @@ class songView: UIView {
         songEmbed.scrollView.bounces = false
         songEmbed.layer.cornerRadius = 10.0
         songEmbed.clipsToBounds = true
-        
+
         chartInfo.text = "Chart Position: ???"
         
         score = song.chartRank

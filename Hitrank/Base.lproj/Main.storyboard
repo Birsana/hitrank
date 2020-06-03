@@ -35,7 +35,6 @@
                                         </state>
                                         <connections>
                                             <action selector="playTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XBS-RT-G6K"/>
-                                            <segue destination="XYf-fM-9aI" kind="show" id="Mfv-wz-syV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lo-st-noh">
@@ -93,6 +92,7 @@
                         <outlet property="menu" destination="e0G-R2-D43" id="fMX-0Z-oop"/>
                         <outlet property="playButton" destination="Zas-ma-qXW" id="K7K-Qa-ERn"/>
                         <outlet property="titleText" destination="G3e-7Q-AbN" id="CHc-lW-nO5"/>
+                        <segue destination="XYf-fM-9aI" kind="show" identifier="start" id="tto-AW-5F0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -102,7 +102,7 @@
         <!--In Game View-->
         <scene sceneID="n3f-2q-m7N">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="XYf-fM-9aI" customClass="inGameView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" modalPresentationStyle="fullScreen" id="XYf-fM-9aI" customClass="inGameView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Yt-dx-7Wh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="ZjH-lN-APG" id="pfH-gY-XXB"/>
                         <outlet property="scoreLabel" destination="QcZ-Aa-ca4" id="pwh-Zm-HKO"/>
-                        <segue destination="KKX-P7-Uf4" kind="presentation" identifier="gameOver" id="btI-GA-KKL"/>
+                        <segue destination="KKX-P7-Uf4" kind="show" identifier="gameOver" id="btI-GA-KKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kfz-hF-2nS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -227,7 +227,7 @@ is from Apple Music Top 50 and is updated daily.</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="XYf-fM-9aI" kind="show" id="397-Tx-S5I"/>
+                                            <action selector="againTapped:" destination="KKX-P7-Uf4" eventType="touchUpInside" id="HsX-lE-XYw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utg-l1-anV">
@@ -277,7 +277,6 @@ is from Apple Music Top 50 and is updated daily.</string>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="YaM-11-Hu5" firstAttribute="centerY" secondItem="qsw-cq-5aO" secondAttribute="centerY" id="6vT-tQ-MLg"/>
                             <constraint firstItem="0UJ-eC-AbB" firstAttribute="bottom" secondItem="aTT-Ve-st3" secondAttribute="bottom" constant="50" id="9cR-yb-GCc"/>
@@ -299,6 +298,7 @@ is from Apple Music Top 50 and is updated daily.</string>
                         <outlet property="playAgain" destination="5VT-ua-uLf" id="6mD-Ls-dBb"/>
                         <outlet property="ring" destination="YaM-11-Hu5" id="Ln7-dz-HgQ"/>
                         <outlet property="scoreLabel" destination="yDy-3D-NfZ" id="uhC-Cb-GP3"/>
+                        <segue destination="XYf-fM-9aI" kind="show" identifier="again" id="pNH-6B-uuH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lq-4W-w8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -307,7 +307,6 @@ is from Apple Music Top 50 and is updated daily.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="btI-GA-KKL"/>
-        <segue reference="397-Tx-S5I"/>
+        <segue reference="pNH-6B-uuH"/>
     </inferredMetricsTieBreakers>
 </document>
