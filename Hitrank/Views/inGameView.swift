@@ -152,6 +152,9 @@ class inGameView: UIViewController{
         lowerView?.populateData(song: bottomTrack) //updates the bottom view with song data
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        <#code#>
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
