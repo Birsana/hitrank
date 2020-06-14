@@ -16,12 +16,14 @@ class HomeView: UIViewController{
     
     @IBOutlet weak var titleText: UILabel!
     
+
     @IBOutlet weak var icon: UIImageView!
     
     @IBOutlet weak var menu: UIStackView!
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var howToPlayButton: UIButton!
+    
     @IBOutlet weak var highScore: UILabel!
     
     let reachability = try! Reachability()
@@ -42,10 +44,11 @@ class HomeView: UIViewController{
         view.addSubview(border)
         view.sendSubviewToBack(border)
         border.translatesAutoresizingMaskIntoConstraints = false
-        border.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
+        border.topAnchor.constraint(equalTo: titleText.topAnchor, constant: -5).isActive = true
         border.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
         border.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         border.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        
         
         border.layer.borderWidth = 2
         border.layer.borderColor = UIColor.systemPink.cgColor
