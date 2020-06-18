@@ -266,7 +266,7 @@ class inGameView: UIViewController{
     }
     
     
-    func gameOver() {
+    func gameOver() { //bug here when press button twice
         lowerView?.songEmbed.removeFromSuperview()
         upperView?.songEmbed.removeFromSuperview()
         performSegue(withIdentifier: "gameOver", sender: nil)

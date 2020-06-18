@@ -11,11 +11,11 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController definesPresentationContext="YES" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HomeView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="e0G-R2-D43">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="e0G-R2-D43">
                                 <rect key="frame" x="69.666666666666657" y="612" width="274.66666666666674" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-ma-qXW">
@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscore: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkK-cQ-H6g">
-                                        <rect key="frame" x="0.0" y="179.99999999999994" width="274.66666666666669" height="20"/>
+                                        <rect key="frame" x="0.0" y="180" width="274.66666666666669" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="YsY-Qm-7yM"/>
                                         </constraints>
@@ -54,9 +54,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="G5f-2M-WyH"/>
-                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hitrank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3e-7Q-AbN">
                                 <rect key="frame" x="0.0" y="44.000000000000007" width="414" height="71.666666666666686"/>
@@ -67,11 +64,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-Ph-Mfv">
-                                <rect key="frame" x="54" y="211" width="306" height="306"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="306" id="PM9-qQ-31P"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-Ph-Mfv">
+                                <rect key="frame" x="54" y="115.66666666666666" width="306" height="496.33333333333337"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -115,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcZ-Aa-ca4">
-                                <rect key="frame" x="201.33333333333334" y="437.66666666666669" width="11.333333333333343" height="21"/>
+                                <rect key="frame" x="201.66666666666666" y="437.66666666666669" width="11" height="21"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -167,11 +161,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0q-bS-StO" userLabel="instructions">
-                                    <rect key="frame" x="72" y="356" width="270" height="130"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="270" id="hbb-T3-RZF"/>
-                                        <constraint firstAttribute="height" constant="130" id="wc4-Ff-6B9"/>
-                                    </constraints>
+                                    <rect key="frame" x="62" y="346" width="290" height="150"/>
                                     <string key="text">Put your music knowledge to the test with Hitrank! Guess which song is higher on the chart, and try to build a big streak! Song data 
 is from Apple Music Top 50 and is updated daily.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -187,12 +177,16 @@ is from Apple Music Top 50 and is updated daily.</string>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="W0q-bS-StO" firstAttribute="centerY" secondItem="Kwu-k6-bMN" secondAttribute="centerY" id="0TG-Uf-5ng"/>
+                                <constraint firstItem="W0q-bS-StO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QsX-va-AMR" secondAttribute="leading" id="F0y-tY-kta"/>
                                 <constraint firstAttribute="bottom" secondItem="X8o-KR-YGG" secondAttribute="bottom" id="NQ7-HX-dqW"/>
                                 <constraint firstItem="X8o-KR-YGG" firstAttribute="leading" secondItem="Kwu-k6-bMN" secondAttribute="leading" id="Nfx-9o-L6g"/>
                                 <constraint firstAttribute="trailing" secondItem="X8o-KR-YGG" secondAttribute="trailing" id="QoG-YA-Jsu"/>
                                 <constraint firstItem="QsX-va-AMR" firstAttribute="centerX" secondItem="Kwu-k6-bMN" secondAttribute="centerX" id="RRR-b9-rmb"/>
+                                <constraint firstItem="W0q-bS-StO" firstAttribute="bottom" secondItem="QsX-va-AMR" secondAttribute="bottom" id="Ykq-Et-BHp"/>
                                 <constraint firstItem="QsX-va-AMR" firstAttribute="centerY" secondItem="Kwu-k6-bMN" secondAttribute="centerY" id="f7W-U8-q48"/>
                                 <constraint firstItem="X8o-KR-YGG" firstAttribute="top" secondItem="Kwu-k6-bMN" secondAttribute="top" id="oLE-aB-PzF"/>
+                                <constraint firstItem="W0q-bS-StO" firstAttribute="top" secondItem="QsX-va-AMR" secondAttribute="top" id="oVL-Uq-SnQ"/>
+                                <constraint firstItem="W0q-bS-StO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QsX-va-AMR" secondAttribute="trailing" id="qpg-VB-iDc"/>
                                 <constraint firstItem="W0q-bS-StO" firstAttribute="centerX" secondItem="Kwu-k6-bMN" secondAttribute="centerX" id="xKH-UR-VQI"/>
                             </constraints>
                         </view>
@@ -216,18 +210,18 @@ is from Apple Music Top 50 and is updated daily.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaM-EO-KaD">
-                                <rect key="frame" x="0.0" y="74" width="414" height="60"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <rect key="frame" x="0.0" y="74" width="414" height="71.666666666666686"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aTT-Ve-st3">
-                                <rect key="frame" x="82" y="682" width="250" height="130"/>
+                                <rect key="frame" x="69.666666666666657" y="677" width="274.66666666666674" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VT-ua-uLf">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="274.66666666666669" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="dew-QE-YOj"/>
+                                            <constraint firstAttribute="height" constant="60" id="ybE-mi-BnM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Play Again">
@@ -238,9 +232,9 @@ is from Apple Music Top 50 and is updated daily.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utg-l1-anV">
-                                        <rect key="frame" x="0.0" y="80" width="250" height="50"/>
+                                        <rect key="frame" x="0.0" y="90" width="274.66666666666669" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="oiL-6I-WuQ"/>
+                                            <constraint firstAttribute="height" constant="60" id="6Oa-pT-vRv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Main Menu">
@@ -252,8 +246,8 @@ is from Apple Music Top 50 and is updated daily.</string>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="Kz5-hy-ykZ"/>
-                                    <constraint firstAttribute="height" constant="130" id="MHn-Un-Wxu"/>
+                                    <constraint firstItem="Utg-l1-anV" firstAttribute="top" secondItem="5VT-ua-uLf" secondAttribute="bottom" constant="30" id="o5I-0T-poe"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="x0I-HN-Jtb"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="aUd-b5-MMo">
@@ -285,16 +279,16 @@ is from Apple Music Top 50 and is updated daily.</string>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="YaM-11-Hu5" firstAttribute="centerY" secondItem="qsw-cq-5aO" secondAttribute="centerY" id="6vT-tQ-MLg"/>
-                            <constraint firstItem="0UJ-eC-AbB" firstAttribute="bottom" secondItem="aTT-Ve-st3" secondAttribute="bottom" constant="50" id="9cR-yb-GCc"/>
-                            <constraint firstItem="MaM-EO-KaD" firstAttribute="centerX" secondItem="qsw-cq-5aO" secondAttribute="centerX" id="AaS-3c-AmI"/>
-                            <constraint firstItem="YaM-11-Hu5" firstAttribute="centerX" secondItem="qsw-cq-5aO" secondAttribute="centerX" id="Alq-Iz-sKb"/>
-                            <constraint firstItem="aUd-b5-MMo" firstAttribute="centerX" secondItem="qsw-cq-5aO" secondAttribute="centerX" id="GRo-Yd-CwK"/>
-                            <constraint firstItem="aUd-b5-MMo" firstAttribute="centerY" secondItem="qsw-cq-5aO" secondAttribute="centerY" id="Kqa-gW-8gt"/>
-                            <constraint firstItem="aTT-Ve-st3" firstAttribute="centerX" secondItem="qsw-cq-5aO" secondAttribute="centerX" id="M0y-xh-Yee"/>
-                            <constraint firstItem="MaM-EO-KaD" firstAttribute="top" secondItem="0UJ-eC-AbB" secondAttribute="top" constant="30" id="Up8-Zo-LkA"/>
-                            <constraint firstItem="0UJ-eC-AbB" firstAttribute="trailing" secondItem="MaM-EO-KaD" secondAttribute="trailing" id="ehc-8p-S10"/>
-                            <constraint firstItem="MaM-EO-KaD" firstAttribute="leading" secondItem="0UJ-eC-AbB" secondAttribute="leading" id="gtK-Bg-4vH"/>
+                            <constraint firstItem="0UJ-eC-AbB" firstAttribute="bottom" secondItem="aTT-Ve-st3" secondAttribute="bottom" constant="35" id="7N5-Zn-lCY"/>
+                            <constraint firstItem="MaM-EO-KaD" firstAttribute="trailing" secondItem="0UJ-eC-AbB" secondAttribute="trailing" id="HIC-Ka-eko"/>
+                            <constraint firstItem="MaM-EO-KaD" firstAttribute="leading" secondItem="0UJ-eC-AbB" secondAttribute="leading" id="Jzr-Z7-akp"/>
+                            <constraint firstItem="aTT-Ve-st3" firstAttribute="leading" secondItem="0UJ-eC-AbB" secondAttribute="leading" constant="69.670000000000002" id="f4X-fD-lre"/>
+                            <constraint firstItem="YaM-11-Hu5" firstAttribute="centerY" secondItem="qsw-cq-5aO" secondAttribute="centerY" id="hxw-tL-V11"/>
+                            <constraint firstItem="0UJ-eC-AbB" firstAttribute="trailing" secondItem="aTT-Ve-st3" secondAttribute="trailing" constant="69.670000000000002" id="mPh-zm-CQN"/>
+                            <constraint firstItem="YaM-11-Hu5" firstAttribute="centerX" secondItem="qsw-cq-5aO" secondAttribute="centerX" id="sGo-ux-XsN"/>
+                            <constraint firstItem="aUd-b5-MMo" firstAttribute="centerY" secondItem="qsw-cq-5aO" secondAttribute="centerY" id="t2H-R5-Lh5"/>
+                            <constraint firstItem="MaM-EO-KaD" firstAttribute="top" secondItem="0UJ-eC-AbB" secondAttribute="top" constant="30" id="uDi-Lw-B6U"/>
+                            <constraint firstItem="aUd-b5-MMo" firstAttribute="centerX" secondItem="qsw-cq-5aO" secondAttribute="centerX" id="xrx-Jq-Mbc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0UJ-eC-AbB"/>
                     </view>
