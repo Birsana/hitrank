@@ -12,14 +12,14 @@ import Alamofire
 import QuartzCore
 import EFCountingLabel
 
-class inGameView: UIViewController{
+class InGameView: UIViewController{
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    var upperView: songView?
-    var lowerView: songView?
-    var newSongView: songView?
+    var upperView: SongView?
+    var lowerView: SongView?
+    var newSongView: SongView?
     let lineView = UIView()
     
     var upperSong: Song?
@@ -33,7 +33,7 @@ class inGameView: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gameOver" {
-            let destVC = segue.destination as! gameOver
+            let destVC = segue.destination as! GameOverView
             destVC.score = score
         }
     }
@@ -160,8 +160,8 @@ class inGameView: UIViewController{
         
         view.setGradientBackground(colorOne: Colors.darkBlue, colorTwo: Colors.blue)
         
-        upperView = songView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        lowerView = songView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        upperView = SongView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        lowerView = SongView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         
         view.addSubview(upperView!)
         view.addSubview(lowerView!)
@@ -272,8 +272,8 @@ class inGameView: UIViewController{
         performSegue(withIdentifier: "gameOver", sender: nil)
     }
     
-    func newBottomView() -> songView { //creates the new bottom view
-        let newBottom = songView()
+    func newBottomView() -> SongView { //creates the new bottom view
+        let newBottom = SongView()
         view.addSubview(newBottom)
         
         //now we populate the new view with the necessary data

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class gameOver: UIViewController {
+class GameOverView: UIViewController {
 
     var score: Int!
     var highScore: Int!

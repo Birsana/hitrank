@@ -11,7 +11,7 @@ import WebKit
 import Kingfisher
 import EFCountingLabel
 
-class songView: UIView {
+class SongView: UIView, WKNavigationDelegate {
     
     @IBOutlet var contentView: UIView!
     
@@ -22,6 +22,9 @@ class songView: UIView {
     @IBOutlet weak var higherButton: UIButton!
     
     @IBOutlet weak var lowerButton: UIButton!
+    
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    
     
     var score: Int!
     
@@ -40,6 +43,7 @@ class songView: UIView {
         
         let playURL = song.url.dropFirst(8)
         let html = genericHTML + playURL + HTMLEnd
+        
         songEmbed.loadHTMLString(html, baseURL: nil)
         songEmbed.scrollView.isScrollEnabled = false
         songEmbed.scrollView.bounces = false
@@ -86,12 +90,18 @@ class songView: UIView {
         higherButton.backgroundColor = UIColor.systemPink
         lowerButton.backgroundColor = UIColor.systemPink
         
+        songEmbed.addSubview(loadIndicator)
+        loadIndicator.startAnimating()
+        songEmbed.navigationDelegate = self
+        loadIndicator.hidesWhenStopped = true
+        
         chartInfo.setUpdateBlock { (value, label) in
             label.text = String(format: "Chart Position: #\(Int(value))")
         }
         chartInfo.counter.timingFunction = EFTimingFunction.easeOut(easingRate: 1)
         
         formatSongCover()
+        
     }
     
     
@@ -103,4 +113,11 @@ class songView: UIView {
         chartInfo.countFrom(1, to: CGFloat(score), withDuration: 1)
     }
     
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        loadIndicator.stopAnimating()
+    }
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        loadIndicator.stopAnimating()
+    }
 }

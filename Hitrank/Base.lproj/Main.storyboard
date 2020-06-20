@@ -103,7 +103,7 @@
         <!--In Game View-->
         <scene sceneID="n3f-2q-m7N">
             <objects>
-                <viewController definesPresentationContext="YES" modalPresentationStyle="fullScreen" id="XYf-fM-9aI" customClass="inGameView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" modalPresentationStyle="fullScreen" id="XYf-fM-9aI" customClass="InGameView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Yt-dx-7Wh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="1180" y="116"/>
         </scene>
-        <!--How To Play-->
+        <!--How To Play View-->
         <scene sceneID="OFS-ba-LK4">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="nNk-1m-24r" customClass="howToPlay" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="nNk-1m-24r" customClass="HowToPlayView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="VgG-XQ-YXw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -201,10 +201,10 @@ is from Apple Music Top 50 and is updated daily.</string>
             </objects>
             <point key="canvasLocation" x="150.72463768115944" y="863.83928571428567"/>
         </scene>
-        <!--Game Over-->
+        <!--Game Over View-->
         <scene sceneID="vVb-bX-94c">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="KKX-P7-Uf4" customClass="gameOver" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="KKX-P7-Uf4" customClass="GameOverView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qsw-cq-5aO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

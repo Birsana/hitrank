@@ -8,7 +8,7 @@
 
 import UIKit
 
-class howToPlay: UIViewController {
+class HowToPlayView: UIViewController {
     
     @IBOutlet weak var info: UIView!
     @IBOutlet weak var instructions: UILabel!
