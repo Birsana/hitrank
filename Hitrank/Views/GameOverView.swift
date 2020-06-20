@@ -9,7 +9,7 @@
 import UIKit
 
 class GameOverView: UIViewController {
-
+    
     var score: Int!
     var highScore: Int!
     
@@ -33,7 +33,7 @@ class GameOverView: UIViewController {
         mainMenu.backgroundColor = UIColor.systemPink
     }
     
-    func createOuterBorder() {
+    func createOuterBorder() { //creates outer pink border
         let border = UIView()
         view.addSubview(border)
         view.sendSubviewToBack(border)
@@ -49,29 +49,33 @@ class GameOverView: UIViewController {
         border.clipsToBounds = true
     }
     
+    func formatLabels() {
+        scoreLabel.text = "Score: \(score ?? 0)"
+        scoreLabel.textColor = UIColor.white
+        highScoreLabel.text = "Highscore: \(highScore ?? 0)"
+        highScoreLabel.textColor = UIColor.white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1)
         
+        //set background colour and icon
+        self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1)
         ring.image = UIImage(named: "justring")
         view.sendSubviewToBack(ring)
-       // view.sendSubviewToBack(blurEffectView)
         
+        //if the user beat their old highscore, update to new highscore
         if score > UserDefaults.standard.integer(forKey: "highScore") {
             UserDefaults.standard.set(score, forKey: "highScore")
         }
         highScore = UserDefaults.standard.integer(forKey: "highScore")
         
-        scoreLabel.text = "Score: \(score ?? 0)"
-        scoreLabel.textColor = UIColor.white
-        highScoreLabel.text = "Highscore: \(highScore ?? 0)"
-        highScoreLabel.textColor = UIColor.white
-        
-        formatButtons()
-        createOuterBorder()
+        formatLabels()//formats labels
+        formatButtons() //formats buttons
+        createOuterBorder() //creates outer pink border
     }
     
-    @IBAction func againTapped(_ sender: Any) {
+    @IBAction func againTapped(_ sender: Any) { //need to check if internet connection is available to allow user to start game
         let status = Reach().connectionStatus()
         switch status {
         case .unknown, .offline:

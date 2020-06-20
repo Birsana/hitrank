@@ -14,15 +14,11 @@ import EFCountingLabel
 class SongView: UIView, WKNavigationDelegate {
     
     @IBOutlet var contentView: UIView!
-    
     @IBOutlet weak var songCover: UIImageView!
     @IBOutlet weak var chartInfo: EFCountingLabel!
     @IBOutlet weak var songEmbed: WKWebView!
-    
     @IBOutlet weak var higherButton: UIButton!
-    
     @IBOutlet weak var lowerButton: UIButton!
-    
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
     
@@ -38,9 +34,7 @@ class SongView: UIView, WKNavigationDelegate {
     }
     
     func populateData(song: Song) { //fills in the necessary song info
-        
-        contentView.backgroundColor = hexStringToUIColor(hex: song.bgColor)
-        
+                
         let playURL = song.url.dropFirst(8)
         let html = genericHTML + playURL + HTMLEnd
         
@@ -68,16 +62,7 @@ class SongView: UIView, WKNavigationDelegate {
         songCover.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
     
-    
-    
-    private func commonInit() {
-        Bundle.main.loadNibNamed("songView", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView.sendSubviewToBack(songCover)
-        
-        
+    func formatButtons() { //formats buttons
         higherButton.setTitle("Higher", for: .normal)
         lowerButton.setTitle("Lower", for: .normal)
         
@@ -89,31 +74,46 @@ class SongView: UIView, WKNavigationDelegate {
         
         higherButton.backgroundColor = UIColor.systemPink
         lowerButton.backgroundColor = UIColor.systemPink
+    }
+    
+    
+    private func commonInit() {
         
+        //inital setup of view
+        Bundle.main.loadNibNamed("songView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.sendSubviewToBack(songCover)
+        
+        formatButtons() //formats buttons
+        
+        //set up song embed
         songEmbed.addSubview(loadIndicator)
         loadIndicator.startAnimating()
         songEmbed.navigationDelegate = self
         loadIndicator.hidesWhenStopped = true
         
+        //this allows the label to animate counting to position on chart
         chartInfo.setUpdateBlock { (value, label) in
             label.text = String(format: "Chart Position: #\(Int(value))")
         }
         chartInfo.counter.timingFunction = EFTimingFunction.easeOut(easingRate: 1)
         
-        formatSongCover()
+        formatSongCover() //formats the song cover
         
     }
     
     
-    @IBAction func higherTapped(_ sender: Any) {
+    @IBAction func higherTapped(_ sender: Any) { //animate counting to position
         chartInfo.countFrom(0, to: CGFloat(score), withDuration: 1)
     }
     
-    @IBAction func lowerTapped(_ sender: Any) {
+    @IBAction func lowerTapped(_ sender: Any) { //animate counting to position
         chartInfo.countFrom(1, to: CGFloat(score), withDuration: 1)
     }
     
-    
+    //these methods deal with the loading icon
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loadIndicator.stopAnimating()
     }

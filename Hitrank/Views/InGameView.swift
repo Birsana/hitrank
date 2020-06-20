@@ -38,7 +38,7 @@ class InGameView: UIViewController{
         }
     }
     
-    func lineLayout() {
+    func lineLayout() { //adds a line to split top and bottom halves
         view.addSubview(lineView)
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -50,7 +50,7 @@ class InGameView: UIViewController{
 
     }
     
-    func labelLayout() {
+    func labelLayout() { //formats the center score label
         scoreLabel.backgroundColor = UIColor.clear
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -60,7 +60,7 @@ class InGameView: UIViewController{
         scoreLabel.layer.cornerRadius = 30
         scoreLabel.layer.masksToBounds = true
         
-        //backgroundView is used for colour animations, since UILabels can't be animated
+        //a backgroundView is used for colour animations, since UILabels can't be animated
         
         backgroundView.backgroundColor = UIColor.systemPink
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -138,6 +138,7 @@ class InGameView: UIViewController{
         scoreLabel.text = "0"
         scoreLabel.textAlignment = .center
         
+        //get random song and remove it from list of available songs
         availableSongs = songList
         let topTrack = availableSongs.remove(at: Int.random(in: 0..<availableSongs.count))
         upperSong = topTrack
@@ -152,14 +153,11 @@ class InGameView: UIViewController{
         lowerView?.populateData(song: bottomTrack) //updates the bottom view with song data
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        <#code#>
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.setGradientBackground(colorOne: Colors.darkBlue, colorTwo: Colors.blue)
-        
+         
+        //create upper and lower views
         upperView = SongView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         lowerView = SongView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         
@@ -182,9 +180,14 @@ class InGameView: UIViewController{
         lowerView?.lowerButton.addTarget(self, action: #selector(lowerSelect), for: .touchUpInside)
     }
     
-    @objc func higherSelect() {
+    @objc func higherSelect() { //user chooses higher
+        //disable buttons for animation
+        lowerView?.higherButton.isEnabled = false
+        lowerView?.lowerButton.isEnabled = false
+
         if upperSong!.chartRank < lowerSong!.chartRank { //incorrect choice
             UIView.animate(withDuration: 2, delay: 0, animations: {
+                //show an 'X' animate label red, and transition to game over screen
                 self.scoreLabel.text = "X"
                 self.backgroundView.backgroundColor = UIColor.systemRed
             }) { (finished) in
@@ -193,6 +196,7 @@ class InGameView: UIViewController{
             }
         } else { //correct choice
             UIView.animate(withDuration: 2, delay: 0, animations: {
+                //show a check mark, animate label green, call next round method
                 self.scoreLabel.text = "✔"
                 self.backgroundView.backgroundColor = UIColor.systemGreen
             }) { (finished) in
@@ -204,8 +208,12 @@ class InGameView: UIViewController{
     }
     
     @objc func lowerSelect() {
+        //disable buttons for animation
+        lowerView?.higherButton.isEnabled = false
+        lowerView?.lowerButton.isEnabled = false
         if upperSong!.chartRank > lowerSong!.chartRank { //incorrect choice
             UIView.animate(withDuration: 2, delay: 0, animations: {
+                //show an 'X' animate label red, and transition to game over screen
                 self.scoreLabel.text = "X"
                 self.backgroundView.backgroundColor = UIColor.systemRed
             }) { (finished) in
@@ -214,6 +222,7 @@ class InGameView: UIViewController{
             }
         } else { //correct choice
             UIView.animate(withDuration: 2, delay: 0, animations: {
+                //show a check mark, animate label green, call next round method
                 self.scoreLabel.text = "✔"
                 self.backgroundView.backgroundColor = UIColor.systemGreen
             }) { (finished) in

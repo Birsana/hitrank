@@ -15,15 +15,10 @@ class HomeView: UIViewController{
     
     
     @IBOutlet weak var titleText: UILabel!
-    
-
     @IBOutlet weak var icon: UIImageView!
-    
     @IBOutlet weak var menu: UIStackView!
-    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var howToPlayButton: UIButton!
-    
     @IBOutlet weak var highScore: UILabel!
     
     let reachability = try! Reachability()
@@ -39,7 +34,7 @@ class HomeView: UIViewController{
         }
     }
     
-    func createOuterBorder() {
+    func createOuterBorder() { //creates outer pink border
         let border = UIView()
         view.addSubview(border)
         view.sendSubviewToBack(border)
@@ -56,7 +51,7 @@ class HomeView: UIViewController{
         border.clipsToBounds = true
     }
     
-    @objc func reachabilityChanged(note: Notification) {
+    @objc func reachabilityChanged(note: Notification) { //used to check if user is connected to internet
         
         let reachability = note.object as! Reachability
         
@@ -74,16 +69,18 @@ class HomeView: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isFirstLaunch()
-        //view.backgroundColor = UIColor(red: 37, green: 38, blue: 108, alpha: 1)
-        self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1)
+        isFirstLaunch() //check if first launch of app, to set highscore to 0
+        
+        self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1) //set app background colour and title image
         icon.image = UIImage(named: "icon2")
         
-        createOuterBorder()
+        createOuterBorder() //create outer pink border
         
+        //edit title
         titleText.font = UIFont(name: "Verdana-Bold", size: titleText.font.pointSize)
         titleText.textColor = UIColor.white
         
+        //format buttons
         playButton.layer.cornerRadius = playButton.frame.size.height/2
         playButton.layer.masksToBounds = true
         playButton.backgroundColor = UIColor.systemPink
@@ -92,16 +89,13 @@ class HomeView: UIViewController{
         howToPlayButton.layer.masksToBounds = true
         howToPlayButton.backgroundColor = UIColor.systemPink
         
+        //format highscore label
         highScore.text = "Highscore: \(String(UserDefaults.standard.integer(forKey: "highScore")))"
         highScore.textColor = UIColor.white
     }
     
     
-    @IBAction func instructionsTapped(_ sender: Any) {
-        
-    }
-    
-    @IBAction func playTapped(_ sender: Any) { //need to check if internet connection is available
+    @IBAction func playTapped(_ sender: Any) { //need to check if internet connection is available to allow user to start game
         let status = Reach().connectionStatus()
         switch status {
         case .unknown, .offline:

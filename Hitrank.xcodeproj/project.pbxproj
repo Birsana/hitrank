@@ -10,7 +10,6 @@
 		670A2F60245CCC5F00BD0381 /* InGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670A2F5F245CCC5F00BD0381 /* InGameView.swift */; };
 		67155A2C245D1B5300D372CA /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A2B245D1B5300D372CA /* Song.swift */; };
 		67155A2E245DDCD900D372CA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67155A2D245DDCD900D372CA /* WebKit.framework */; };
-		67155A362464B82600D372CA /* hexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A352464B82600D372CA /* hexExtension.swift */; };
 		67155A39246746D100D372CA /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A38246746D100D372CA /* GameOverView.swift */; };
 		67155A3B246A327A00D372CA /* songView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67155A3A246A327A00D372CA /* songView.xib */; };
 		67155A3D246A32A700D372CA /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155A3C246A32A700D372CA /* SongView.swift */; };
@@ -20,7 +19,6 @@
 		67664489245C92910039E88F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67664487245C92910039E88F /* Main.storyboard */; };
 		6766448B245C92920039E88F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6766448A245C92920039E88F /* Assets.xcassets */; };
 		6766448E245C92920039E88F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6766448C245C92920039E88F /* LaunchScreen.storyboard */; };
-		67664496245C9F6F0039E88F /* gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67664495245C9F6F0039E88F /* gradient.swift */; };
 		67BCC479247AD9C30030E5DF /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BCC478247AD9C30030E5DF /* HowToPlayView.swift */; };
 		67D94EA02487F0FA00423479 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D94E9F2487F0FA00423479 /* Reach.swift */; };
 		DFCA9AF3003E89B260CF4950 /* Pods_Hitrank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF0E8D9238DC10C407671F9 /* Pods_Hitrank.framework */; };
@@ -31,7 +29,6 @@
 		670A2F5F245CCC5F00BD0381 /* InGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameView.swift; sourceTree = "<group>"; };
 		67155A2B245D1B5300D372CA /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		67155A2D245DDCD900D372CA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		67155A352464B82600D372CA /* hexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hexExtension.swift; sourceTree = "<group>"; };
 		67155A38246746D100D372CA /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		67155A3A246A327A00D372CA /* songView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = songView.xib; sourceTree = "<group>"; };
 		67155A3C246A32A700D372CA /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
@@ -43,7 +40,6 @@
 		6766448A245C92920039E88F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6766448D245C92920039E88F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6766448F245C92920039E88F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67664495245C9F6F0039E88F /* gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradient.swift; sourceTree = "<group>"; };
 		67BCC478247AD9C30030E5DF /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 		67D94E9F2487F0FA00423479 /* Reach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		6EF0E8D9238DC10C407671F9 /* Pods_Hitrank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hitrank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +92,6 @@
 		67155A3F246DCF2400D372CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				67664495245C9F6F0039E88F /* gradient.swift */,
-				67155A352464B82600D372CA /* hexExtension.swift */,
 				67D94E9F2487F0FA00423479 /* Reach.swift */,
 			);
 			path = Helpers;
@@ -265,9 +259,7 @@
 				670A2F60245CCC5F00BD0381 /* InGameView.swift in Sources */,
 				67BCC479247AD9C30030E5DF /* HowToPlayView.swift in Sources */,
 				67155A2C245D1B5300D372CA /* Song.swift in Sources */,
-				67664496245C9F6F0039E88F /* gradient.swift in Sources */,
 				67664486245C92910039E88F /* HomeView.swift in Sources */,
-				67155A362464B82600D372CA /* hexExtension.swift in Sources */,
 				67664482245C92910039E88F /* AppDelegate.swift in Sources */,
 				67155A39246746D100D372CA /* GameOverView.swift in Sources */,
 				67664484245C92910039E88F /* SceneDelegate.swift in Sources */,
