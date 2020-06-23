@@ -70,7 +70,7 @@ class HomeView: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         isFirstLaunch() //check if first launch of app, to set highscore to 0
-        
+        titleText.backgroundColor = UIColor.clear
         self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1) //set app background colour and title image
         icon.image = UIImage(named: "icon2")
         

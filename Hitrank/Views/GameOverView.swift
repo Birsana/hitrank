@@ -21,6 +21,7 @@ class GameOverView: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     
+    @IBOutlet weak var scoreComment: UILabel!
     
     func formatButtons() {
         playAgain.layer.cornerRadius = playAgain.frame.size.height/2
@@ -56,6 +57,19 @@ class GameOverView: UIViewController {
         highScoreLabel.textColor = UIColor.white
     }
     
+    func comment() { //writes a comment based on user's score
+        scoreComment.textColor = UIColor.systemPink
+        if score < 5{
+            scoreComment.text = "Come on! You can do better than that!"
+        } else if score < 10{
+            scoreComment.text = "Not bad - you know your stuff!"
+        } else if score < 15{
+            scoreComment.text = "You should consider playing this game for a living!"
+        } else {
+            scoreComment.text = "You've gotta be cheating!"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,6 +87,7 @@ class GameOverView: UIViewController {
         formatLabels()//formats labels
         formatButtons() //formats buttons
       //  createOuterBorder() //creates outer pink border
+        comment() //writes a comment based on person's score
     }
     
     @IBAction func againTapped(_ sender: Any) { //need to check if internet connection is available to allow user to start game
