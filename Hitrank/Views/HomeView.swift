@@ -74,7 +74,7 @@ class HomeView: UIViewController{
         self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1) //set app background colour and title image
         icon.image = UIImage(named: "icon2")
         
-        createOuterBorder() //create outer pink border
+        //createOuterBorder() //create outer pink border
         
         //edit title
         titleText.font = UIFont(name: "Verdana-Bold", size: titleText.font.pointSize)

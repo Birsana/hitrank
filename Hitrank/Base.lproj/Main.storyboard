@@ -152,16 +152,12 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-va-AMR">
-                                    <rect key="frame" x="62" y="346" width="290" height="150"/>
+                                    <rect key="frame" x="20" y="333.66666666666669" width="374" height="174.66666666666669"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="150" id="YgU-Is-CJw"/>
-                                        <constraint firstAttribute="width" constant="290" id="jUk-1S-dxN"/>
-                                    </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0q-bS-StO" userLabel="instructions">
-                                    <rect key="frame" x="62" y="346" width="290" height="150"/>
+                                    <rect key="frame" x="25" y="370.33333333333331" width="364" height="101.66666666666669"/>
                                     <string key="text">Put your music knowledge to the test with Hitrank! Guess which song is higher on the chart, and try to build a big streak! Song data 
 is from Apple Music Top 50 and is updated daily.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -176,18 +172,20 @@ is from Apple Music Top 50 and is updated daily.</string>
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="W0q-bS-StO" firstAttribute="centerY" secondItem="Kwu-k6-bMN" secondAttribute="centerY" id="0TG-Uf-5ng"/>
-                                <constraint firstItem="W0q-bS-StO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QsX-va-AMR" secondAttribute="leading" id="F0y-tY-kta"/>
-                                <constraint firstAttribute="bottom" secondItem="X8o-KR-YGG" secondAttribute="bottom" id="NQ7-HX-dqW"/>
-                                <constraint firstItem="X8o-KR-YGG" firstAttribute="leading" secondItem="Kwu-k6-bMN" secondAttribute="leading" id="Nfx-9o-L6g"/>
-                                <constraint firstAttribute="trailing" secondItem="X8o-KR-YGG" secondAttribute="trailing" id="QoG-YA-Jsu"/>
-                                <constraint firstItem="QsX-va-AMR" firstAttribute="centerX" secondItem="Kwu-k6-bMN" secondAttribute="centerX" id="RRR-b9-rmb"/>
-                                <constraint firstItem="W0q-bS-StO" firstAttribute="bottom" secondItem="QsX-va-AMR" secondAttribute="bottom" id="Ykq-Et-BHp"/>
-                                <constraint firstItem="QsX-va-AMR" firstAttribute="centerY" secondItem="Kwu-k6-bMN" secondAttribute="centerY" id="f7W-U8-q48"/>
-                                <constraint firstItem="X8o-KR-YGG" firstAttribute="top" secondItem="Kwu-k6-bMN" secondAttribute="top" id="oLE-aB-PzF"/>
-                                <constraint firstItem="W0q-bS-StO" firstAttribute="top" secondItem="QsX-va-AMR" secondAttribute="top" id="oVL-Uq-SnQ"/>
-                                <constraint firstItem="W0q-bS-StO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QsX-va-AMR" secondAttribute="trailing" id="qpg-VB-iDc"/>
-                                <constraint firstItem="W0q-bS-StO" firstAttribute="centerX" secondItem="Kwu-k6-bMN" secondAttribute="centerX" id="xKH-UR-VQI"/>
+                                <constraint firstItem="QsX-va-AMR" firstAttribute="leading" secondItem="Kwu-k6-bMN" secondAttribute="leading" constant="20" id="7l1-C5-rpt"/>
+                                <constraint firstAttribute="trailing" secondItem="QsX-va-AMR" secondAttribute="trailing" constant="20" id="Gxs-Bs-x43"/>
+                                <constraint firstItem="QsX-va-AMR" firstAttribute="centerX" secondItem="X8o-KR-YGG" secondAttribute="centerX" id="KVR-mK-FXd"/>
+                                <constraint firstItem="W0q-bS-StO" firstAttribute="leading" secondItem="Kwu-k6-bMN" secondAttribute="leading" constant="25" id="UWO-Jr-af6"/>
+                                <constraint firstItem="QsX-va-AMR" firstAttribute="centerY" secondItem="W0q-bS-StO" secondAttribute="centerY" id="Xyc-qJ-rP4"/>
+                                <constraint firstAttribute="trailing" secondItem="QsX-va-AMR" secondAttribute="trailing" constant="20" id="Zx5-1w-6kc"/>
+                                <constraint firstItem="W0q-bS-StO" firstAttribute="centerX" secondItem="Kwu-k6-bMN" secondAttribute="centerX" id="ccO-U9-fe6"/>
+                                <constraint firstItem="W0q-bS-StO" firstAttribute="centerY" secondItem="Kwu-k6-bMN" secondAttribute="centerY" id="iAq-w1-RXA"/>
+                                <constraint firstAttribute="bottom" secondItem="X8o-KR-YGG" secondAttribute="bottom" id="jKp-zm-ek6"/>
+                                <constraint firstItem="QsX-va-AMR" firstAttribute="centerY" secondItem="X8o-KR-YGG" secondAttribute="centerY" id="lSb-s5-uuu"/>
+                                <constraint firstItem="X8o-KR-YGG" firstAttribute="top" secondItem="Kwu-k6-bMN" secondAttribute="top" id="r0p-n3-5z6"/>
+                                <constraint firstItem="X8o-KR-YGG" firstAttribute="leading" secondItem="Kwu-k6-bMN" secondAttribute="leading" id="s7K-pQ-5IY"/>
+                                <constraint firstItem="QsX-va-AMR" firstAttribute="top" secondItem="Kwu-k6-bMN" secondAttribute="top" constant="333.66666666666669" id="sUd-N1-pSH"/>
+                                <constraint firstAttribute="trailing" secondItem="X8o-KR-YGG" secondAttribute="trailing" id="zsR-zh-bMT"/>
                             </constraints>
                         </view>
                         <blurEffect style="regular"/>

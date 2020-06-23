@@ -72,7 +72,7 @@ class GameOverView: UIViewController {
         
         formatLabels()//formats labels
         formatButtons() //formats buttons
-        createOuterBorder() //creates outer pink border
+      //  createOuterBorder() //creates outer pink border
     }
     
     @IBAction func againTapped(_ sender: Any) { //need to check if internet connection is available to allow user to start game
