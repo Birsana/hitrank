@@ -145,20 +145,20 @@
             <objects>
                 <viewController modalPresentationStyle="overCurrentContext" id="nNk-1m-24r" customClass="HowToPlayView" customModule="Hitrank" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="VgG-XQ-YXw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Kwu-k6-bMN">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8o-KR-YGG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <connections>
                                         <action selector="dismissPopup:" destination="nNk-1m-24r" eventType="touchUpInside" id="cvd-8X-1V0"/>
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cf3-xi-cey">
-                                    <rect key="frame" x="20" y="334" width="374" height="174"/>
+                                    <rect key="frame" x="20" y="361" width="374" height="174"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Put your music knowledge to the test with Hitrank!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys9-RM-2SB">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -319,6 +319,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pNH-6B-uuH"/>
+        <segue reference="tto-AW-5F0"/>
     </inferredMetricsTieBreakers>
 </document>
