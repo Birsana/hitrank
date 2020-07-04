@@ -34,23 +34,6 @@ class HomeView: UIViewController{
         }
     }
     
-    func createOuterBorder() { //creates outer pink border
-        let border = UIView()
-        view.addSubview(border)
-        view.sendSubviewToBack(border)
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.topAnchor.constraint(equalTo: titleText.topAnchor, constant: -5).isActive = true
-        border.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-        border.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
-        border.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
-        
-        
-        border.layer.borderWidth = 2
-        border.layer.borderColor = UIColor.systemPink.cgColor
-        border.layer.cornerRadius = 10
-        border.clipsToBounds = true
-    }
-    
     @objc func reachabilityChanged(note: Notification) { //used to check if user is connected to internet
         
         let reachability = note.object as! Reachability
@@ -73,8 +56,6 @@ class HomeView: UIViewController{
         titleText.backgroundColor = UIColor.clear
         self.view.backgroundColor = #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.4980392157, alpha: 1) //set app background colour and title image
         icon.image = UIImage(named: "icon2")
-        
-        //createOuterBorder() //create outer pink border
         
         //edit title
         titleText.font = UIFont(name: "Verdana-Bold", size: titleText.font.pointSize)

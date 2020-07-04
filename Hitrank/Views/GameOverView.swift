@@ -34,22 +34,6 @@ class GameOverView: UIViewController {
         mainMenu.backgroundColor = UIColor.systemPink
     }
     
-    func createOuterBorder() { //creates outer pink border
-        let border = UIView()
-        view.addSubview(border)
-        view.sendSubviewToBack(border)
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
-        border.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-        border.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
-        border.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
-        
-        border.layer.borderWidth = 2
-        border.layer.borderColor = UIColor.systemPink.cgColor
-        border.layer.cornerRadius = 10
-        border.clipsToBounds = true
-    }
-    
     func formatLabels() {
         scoreLabel.text = "Score: \(score ?? 0)"
         scoreLabel.textColor = UIColor.white
@@ -86,7 +70,6 @@ class GameOverView: UIViewController {
         
         formatLabels()//formats labels
         formatButtons() //formats buttons
-      //  createOuterBorder() //creates outer pink border
         comment() //writes a comment based on person's score
     }
     
